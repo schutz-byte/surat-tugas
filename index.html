@@ -21,16 +21,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         
         .main-container {
-            width: 100%;
-            max-width: 650px;
+            width: 90%;
+            max-width: 500px; /* Diperkecil dari 650px */
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 28px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 20px; /* Diperkecil dari 28px */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
             transition: all 0.4s ease;
-            padding: 3rem;
+            padding: 2rem; /* Diperkecil dari 3rem */
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
@@ -45,56 +46,56 @@
             bottom: -10px;
             z-index: -1;
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            filter: blur(20px);
-            opacity: 0.6;
+            filter: blur(15px); /* Diperkecil dari 20px */
+            opacity: 0.5; /* Diperkecil dari 0.6 */
         }
         
         .main-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px); /* Diperkecil dari 5px */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18); /* Shadow lebih halus */
         }
         
-         .logo {
+        .logo {
             position: absolute;
-            top: 30px;
-            left: 30px;
+            top: 20px;
+            left: 20px;
             z-index: 10;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 18px;
-            padding: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 14px; /* Diperkecil dari 18px */
+            padding: 12px; /* Diperkecil dari 15px */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
             transition: all 0.4s ease;
-            width: 80px;
-            height: 80px;
+            width: 70px; /* Diperkecil dari 80px */
+            height: 70px; /* Diperkecil dari 80px */
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .logo:hover {
-            transform: rotate(15deg) scale(1.1);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: rotate(15deg) scale(1.05); /* Diperkecil dari 1.1 */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Shadow lebih halus */
         }
         
         .btn-primary {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem 2.5rem;
-            font-size: 1.35rem;
-            border-radius: 18px;
+            padding: 1.2rem 2rem; /* Diperkecil dari 1.5rem 2.5rem */
+            font-size: 1.2rem; /* Diperkecil dari 1.35rem */
+            border-radius: 14px; /* Diperkecil dari 18px */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* Shadow lebih halus */
             border: none;
             width: 100%;
-            margin: 1.2rem 0;
+            margin: 1rem 0; /* Diperkecil dari 1.2rem */
         }
         
         .btn-primary:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px) scale(1.01); /* Diperkecil dari 5px dan 1.02 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
         }
         
         .btn-primary:after {
@@ -121,12 +122,12 @@
                 opacity: 1;
             }
             20% {
-                transform: scale(25, 25);
+                transform: scale(20, 20); /* Diperkecil dari 25 */
                 opacity: 1;
             }
             100% {
                 opacity: 0;
-                transform: scale(40, 40);
+                transform: scale(35, 35); /* Diperkecil dari 40 */
             }
         }
         
@@ -136,35 +137,36 @@
         
         @keyframes floating {
             0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, 15px); }
+            50% { transform: translate(0, 10px); } /* Diperkecil dari 15px */
             100% { transform: translate(0, -0px); }
         }
         
         .title {
             background: linear-gradient(135deg, #3498db, #2c3e50);
-            -webkit-text-fill-color: white;
-            font-weight: 800;
-            font-size: 2.8rem;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700; /* Diubah dari 800 */
+            font-size: 2.2rem; /* Diperkecil dari 2.8rem */
             margin-bottom: 0.5rem;
         }
         
         .weather-icon {
-            font-size: 3rem;
-            margin-bottom: 1.2rem;
+            font-size: 2.5rem; /* Diperkecil dari 3rem */
+            margin-bottom: 1rem; /* Diperkecil dari 1.2rem */
             color: #3498db;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); } /* Diperkecil dari 1.1 */
             100% { transform: scale(1); }
         }
         
         .divider {
-            height: 3px;
+            height: 2px; /* Diperkecil dari 3px */
             background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.4), transparent);
-            margin: 2rem 0;
+            margin: 1.5rem 0; /* Diperkecil dari 2rem */
             width: 80%;
             margin-left: auto;
             margin-right: auto;
@@ -174,10 +176,10 @@
             position: absolute;
             top: 10%;
             right: 14%;
-            font-size: 4rem;
+            font-size: 3rem; /* Diperkecil dari 4rem */
             color: #ff7b00;
             animation: rotateSun 30s infinite linear;
-            opacity: 0.7;
+            opacity: 0.6; /* Diperkecil dari 0.7 */
             z-index: -1;
         }
         
@@ -189,16 +191,16 @@
         .cloud-1 {
             top: 10%;
             right: 10%;
-            font-size: 5rem;
+            font-size: 4rem; /* Diperkecil dari 5rem */
             color: #0099ff;
             animation: floatCloud 20s infinite ease-in-out;
-            opacity: 0.8;
+            opacity: 0.7; /* Diperkecil dari 0.8 */
         }
         
         .cloud-2 {
             bottom: 15%;
             left: 8%;
-            font-size: 4rem;
+            font-size: 3rem; /* Diperkecil dari 4rem */
             color: #7476ff;
             animation: floatCloud 25s infinite ease-in-out;
             opacity: 0.4;
@@ -206,22 +208,25 @@
         
         @keyframes floatCloud {
             0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(30px) translateY(15px); }
+            50% { transform: translateX(20px) translateY(10px); } /* Diperkecil dari 30px dan 15px */
             100% { transform: translateX(0) translateY(0); }
         }
-        
-        
         
         @keyframes rotateSun {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+        
+        .text-content {
+            font-size: 1rem; /* Ukuran font yang lebih sesuai */
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
     <!-- Logo di pojok kiri -->
     <div class="logo">
-        <i class="fas fa-cloud-sun fa-3x text-white"></i>
+        <i class="fas fa-cloud-sun fa-2x text-white"></i> <!-- Diperkecil dari fa-3x -->
     </div>
 
     <!-- Elemen dekoratif matahari -->
@@ -230,8 +235,6 @@
     <i class="cloud cloud-1 fas fa-cloud"></i>
     <i class="cloud cloud-2 fas fa-cloud"></i>
     
-    
-
     <div class="main-container floating text-center">
         <div class="weather-icon">
             <i class="fas fa-wind"></i>
@@ -241,24 +244,24 @@
             Menu Surat Tugas 
         </h1>
         
-        <p class="text-gray-600 text-xl mb-8 font-medium">
+        <p class="text-gray-600 text-lg mb-6 font-medium text-content">
             Pilih Salah Satu Menu Sesuai Banyak Orang Yang Ditugaskan
         </p>
         
         <div class="divider"></div>
 
-        <div class="space-y-8 mt-6">
+        <div class="space-y-6 mt-4">
             <!-- Tombol untuk menuju surat.html -->
             <a href="surat.html" class="block">
                 <button class="btn-primary bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold">
-                    <i class="fas fa-envelope-open-text mr-4"></i> Surat Tugas Untuk 1-2 Orang
+                    <i class="fas fa-envelope-open-text mr-3"></i> Surat Tugas Untuk 1-2 Orang
                 </button>
             </a>
 
             <!-- Tombol untuk menuju tabel_srt.html -->
             <a href="tabel_srt.html" class="block">
                 <button class="btn-primary bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold">
-                    <i class="fas fa-table mr-4"></i> Surat Tugas Untuk Banyak Orang
+                    <i class="fas fa-table mr-3"></i> Surat Tugas Untuk Banyak Orang
                 </button>
             </a>
         </div>
@@ -266,15 +269,14 @@
         <div class="divider"></div>
         
         <!-- Footer -->
-        <p class="text-md text-gray-600 mt-8 font-medium">
+        <p class="text-sm text-gray-600 mt-6 font-medium">
             <i class="fas fa-temperature-low mr-2 text-blue-500"></i> Staklim Jateng
         </p>
     </div>
 
     <!-- Elemen dekoratif -->
-    <div class="absolute bottom-8 right-8 text-white text-md bg-gradient-to-r from-blue-400 to-blue-600 py-3 px-5 rounded-full shadow-lg flex items-center">
-        <i class="fas fa-wind mr-3"></i> Surat Tugas Staklim Jateng
+    <div class="absolute bottom-6 right-6 text-white text-sm bg-gradient-to-r from-blue-400 to-blue-600 py-2 px-4 rounded-full shadow-lg flex items-center">
+        <i class="fas fa-wind mr-2"></i> Surat Tugas Staklim Jateng
     </div>
 </body>
-
 </html>
