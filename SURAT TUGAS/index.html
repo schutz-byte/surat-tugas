@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Klimatologi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1469122312224-c5846569feb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .main-container {
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-container:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            z-index: -1;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+        
+        .main-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+         .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 18px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2.5rem;
+            font-size: 1.35rem;
+            border-radius: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            border: none;
+            width: 100%;
+            margin: 1.2rem 0;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+        }
+        
+        .btn-primary:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-primary:hover:after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+        
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .title {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            -webkit-text-fill-color: white;
+            font-weight: 800;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .weather-icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: #3498db;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.4), transparent);
+            margin: 2rem 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sun {
+            position: absolute;
+            top: 10%;
+            right: 14%;
+            font-size: 4rem;
+            color: #ff7b00;
+            animation: rotateSun 30s infinite linear;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        .cloud {
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .cloud-1 {
+            top: 10%;
+            right: 10%;
+            font-size: 5rem;
+            color: #0099ff;
+            animation: floatCloud 20s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        
+        .cloud-2 {
+            bottom: 15%;
+            left: 8%;
+            font-size: 4rem;
+            color: #7476ff;
+            animation: floatCloud 25s infinite ease-in-out;
+            opacity: 0.4;
+        }
+        
+        @keyframes floatCloud {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(30px) translateY(15px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+        
+        
+        
+        @keyframes rotateSun {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo di pojok kiri -->
+    <div class="logo">
+        <i class="fas fa-cloud-sun fa-3x text-white"></i>
+    </div>
+
+    <!-- Elemen dekoratif matahari -->
+    <i class="sun fas fa-sun"></i>
+    <!-- Elemen dekoratif awan -->
+    <i class="cloud cloud-1 fas fa-cloud"></i>
+    <i class="cloud cloud-2 fas fa-cloud"></i>
+    
+    
+
+    <div class="main-container floating text-center">
+        <div class="weather-icon">
+            <i class="fas fa-wind"></i>
+        </div>
+        
+        <h1 class="title">
+            Menu Surat Tugas 
+        </h1>
+        
+        <p class="text-gray-600 text-xl mb-8 font-medium">
+            Pilih Salah Satu Menu Sesuai Banyak Orang Yang Ditugaskan
+        </p>
+        
+        <div class="divider"></div>
+
+        <div class="space-y-8 mt-6">
+            <!-- Tombol untuk menuju surat.html -->
+            <a href="surat.html" class="block">
+                <button class="btn-primary bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold">
+                    <i class="fas fa-envelope-open-text mr-4"></i> Surat Tugas Untuk 1-2 Orang
+                </button>
+            </a>
+
+            <!-- Tombol untuk menuju tabel_srt.html -->
+            <a href="tabel_srt.html" class="block">
+                <button class="btn-primary bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold">
+                    <i class="fas fa-table mr-4"></i> Surat Tugas Untuk Banyak Orang
+                </button>
+            </a>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Footer -->
+        <p class="text-md text-gray-600 mt-8 font-medium">
+            <i class="fas fa-temperature-low mr-2 text-blue-500"></i> Staklim Jateng
+        </p>
+    </div>
+
+    <!-- Elemen dekoratif -->
+    <div class="absolute bottom-8 right-8 text-white text-md bg-gradient-to-r from-blue-400 to-blue-600 py-3 px-5 rounded-full shadow-lg flex items-center">
+        <i class="fas fa-wind mr-3"></i> Surat Tugas Staklim Jateng
+    </div>
+</body>
+</html>
