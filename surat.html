@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplikasi Surat Tugas BMKG</title>
+  <link rel="icon" type="image/png" href="logo_bmkg.png">
+  <link rel="shortcut icon" type="image/x-icon" href="logo_bmkg.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -28,19 +30,28 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg-gradient);
       margin: 0;
-      padding: 30px;
+      padding: 15px;
       min-height: 100vh;
       color: #333;
     }
     
     .container {
-      max-width: 2500px;
-      margin: 20px auto;
+      max-width: 100%;
+      margin: 0 auto;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .container {
+        margin: 20px auto;
+        max-width: 2500px;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+      }
     }
     
     .container:hover {
@@ -51,10 +62,16 @@
     .header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
-      padding: 30px;
+      padding: 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
+    }
+    
+    @media (min-width: 768px) {
+      .header {
+        padding: 30px;
+      }
     }
     
     .header::before {
@@ -69,7 +86,7 @@
     }
     
     .header h1 {
-      font-size: 32px;
+      font-size: 22px;
       margin-bottom: 8px;
       position: relative;
       font-weight: 700;
@@ -77,21 +94,41 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
     
+    @media (min-width: 768px) {
+      .header h1 {
+        font-size: 32px;
+      }
+    }
+    
     .header p {
-      font-size: 17px;
+      font-size: 14px;
       opacity: 0.9;
       position: relative;
       max-width: 600px;
       margin: 0 auto;
     }
     
+    @media (min-width: 768px) {
+      .header p {
+        font-size: 17px;
+      }
+    }
+    
     .header-icon {
       position: absolute;
-      top: 25px;
-      right: 25px;
-      font-size: 38px;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
       opacity: 0.25;
       transition: opacity 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .header-icon {
+        top: 25px;
+        right: 25px;
+        font-size: 38px;
+      }
     }
     
     .header:hover .header-icon {
@@ -100,67 +137,127 @@
     
     .app-container {
       display: flex;
-      min-height: 600px;
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    @media (min-width: 900px) {
+      .app-container {
+        flex-direction: row;
+        min-height: 600px;
+      }
     }
     
     .form-section {
       flex: 1;
-      padding: 35px;
+      padding: 20px;
       background: #f9fbfd;
-      border-right: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+    }
+    
+    @media (min-width: 900px) {
+      .form-section {
+        padding: 35px;
+        border-right: 1px solid #eaeaea;
+        border-bottom: none;
+      }
     }
     
     .preview-section {
       flex: 1.3;
-      padding: 35px;
+      padding: 20px;
       background: #fff;
       display: flex;
       flex-direction: column;
     }
     
+    @media (min-width: 900px) {
+      .preview-section {
+        padding: 35px;
+      }
+    }
+    
     .section-title {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       color: var(--primary);
-      padding-bottom: 12px;
-      border-bottom: 3px solid var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .form-group {
-      margin-bottom: 25px;
-      position: relative;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: var(--primary);
-      font-size: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
       display: flex;
       align-items: center;
       gap: 8px;
     }
     
-    label i {
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--primary);
+        gap: 10px;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    @media (min-width: 768px) {
+      .form-group {
+        margin-bottom: 25px;
+      }
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary);
       font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    @media (min-width: 768px) {
+      label {
+        margin-bottom: 10px;
+        font-size: 16px;
+        gap: 8px;
+      }
+    }
+    
+    label i {
+      font-size: 12px;
       opacity: 0.8;
+    }
+    
+    @media (min-width: 768px) {
+      label i {
+        font-size: 14px;
+      }
     }
     
     select, input, textarea {
       width: 100%;
-      padding: 14px 18px;
+      padding: 12px 15px;
       border: 1px solid #d6dde4;
-      border-radius: 8px;
+      border-radius: 6px;
       font-family: 'Segoe UI', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       transition: all 0.3s;
       background: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    
+    @media (min-width: 768px) {
+      select, input, textarea {
+        padding: 14px 18px;
+        border-radius: 8px;
+        font-size: 16px;
+      }
     }
     
     select:focus, input:focus, textarea:focus {
@@ -172,76 +269,199 @@
     
     textarea {
       resize: vertical;
-      min-height: 120px;
+      min-height: 100px;
+    }
+    
+    @media (min-width: 768px) {
+      textarea {
+        min-height: 120px;
+      }
     }
     
     .btn-group {
       display: flex;
-      gap: 18px;
-      margin-top: 35px;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 25px;
+    }
+    
+    @media (min-width: 768px) {
+      .btn-group {
+        flex-direction: row;
+        gap: 18px;
+        margin-top: 35px;
+      }
     }
     
     button {
       flex: 1;
-      padding: 16px;
+      padding: 14px 18px;
       border: none;
-      border-radius: 8px;
-      font-size: 17px;
+      border-radius: 10px;
+      font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    @media (min-width: 768px) {
+      button {
+        padding: 18px 24px;
+        border-radius: 12px;
+        font-size: 17px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        gap: 12px;
+      }
+    }
+    
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: -1;
+    }
+    
+    button:hover::before {
+      transform: translateX(100%);
+    }
+    
+    button:active {
+      transform: scale(0.96);
     }
     
     button.generate { 
-      background: var(--primary); 
+      background: linear-gradient(135deg, var(--primary) 0%, #0d47a1 100%); 
       color: #fff; 
     }
     
     button.generate:hover { 
-      background: #0d3a5c; 
       transform: translateY(-4px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 16px rgba(13, 71, 161, 0.25);
+    }
+    
+    @media (min-width: 768px) {
+      button.generate:hover { 
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px rgba(13, 71, 161, 0.25);
+      }
     }
     
     button.download { 
-      background: var(--success); 
+      background: linear-gradient(135deg, var(--success) 0%, #1b5e20 100%); 
       color: #fff; 
     }
     
     button.download:hover { 
-      background: #218838; 
       transform: translateY(-4px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 16px rgba(27, 94, 32, 0.25);
+    }
+    
+    @media (min-width: 768px) {
+      button.download:hover { 
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px rgba(27, 94, 32, 0.25);
+      }
     }
     
     button.print { 
-      background: var(--warning); 
+      background: linear-gradient(135deg, var(--warning) 0%, #ff8f00 100%); 
       color: var(--dark); 
     }
     
     button.print:hover { 
-      background: #e0a800; 
       transform: translateY(-4px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 16px rgba(255, 143, 0, 0.25);
+    }
+    
+    @media (min-width: 768px) {
+      button.print:hover { 
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px rgba(255, 143, 0, 0.25);
+      }
+    }
+    
+    .icon {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .icon {
+        font-size: 20px;
+      }
+    }
+    
+    button:hover .icon {
+      transform: scale(1.2);
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(26, 115, 232, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+      }
+    }
+    
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
     
     .surat-container {
       flex: 1;
-      padding: 35px;
+      padding: 20px;
       border: 1px solid #e0e0e0;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #fdfdfd;
       font-family: "Times New Roman", serif;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.5;
       overflow-y: auto;
-      box-shadow: inset 0 0 12px rgba(0,0,0,0.06);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.06);
       transition: box-shadow 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .surat-container {
+        padding: 35px;
+        font-size: 16px;
+        line-height: 1.6;
+        box-shadow: inset 0 0 12px rgba(0,0,0,0.06);
+      }
     }
     
     .surat-container:hover {
@@ -251,16 +471,23 @@
     .surat-header {
       text-align: center;
       font-weight: bold;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
     
     .surat-title {
         text-align: center;
-        margin: 15px 0 0 0;
-        font-size: 17px;
+        margin: 12px 0 0 0;
+        font-size: 15px;
         font-weight: bold;
         line-height: 1;
         letter-spacing: normal;
+    }
+    
+    @media (min-width: 768px) {
+      .surat-title {
+        margin: 15px 0 0 0;
+        font-size: 17px;
+      }
     }
     
     .surat-title p {
@@ -274,23 +501,41 @@
     }
     
     .surat-footer {
-      margin-top: 35px;
+      margin-top: 25px;
       text-align: center;
     }
     
+    @media (min-width: 768px) {
+      .surat-footer {
+        margin-top: 35px;
+      }
+    }
+    
     .ttd-area {
-      margin-top: 90px;
+      margin-top: 60px;
       text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .ttd-area {
+        margin-top: 90px;
+      }
     }
     
     .ttd-name {
       font-weight: bold;
       text-decoration: none;
-      margin-top: 110px;
+      margin-top: 80px;
+    }
+    
+    @media (min-width: 768px) {
+      .ttd-name {
+        margin-top: 110px;
+      }
     }
     
     .pegawai-list {
-      margin: 12px 0;
+      margin: 10px 0;
       padding-left: 0px;
     }
     
@@ -298,54 +543,95 @@
       background: var(--secondary);
       color: white;
       border: none;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 12px;
-      font-size: 15px;
+      margin-top: 10px;
+      font-size: 14px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.3s;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    @media (min-width: 768px) {
+      .add-pegawai {
+        padding: 10px 18px;
+        margin-top: 12px;
+        font-size: 15px;
+        gap: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      }
     }
     
     .add-pegawai:hover {
       background: #1f5a87;
       transform: translateY(-2px);
-      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .add-pegawai:hover {
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      }
     }
     
     .pegawai-item {
       background: #f1f6fc;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
       position: relative;
       border-left: 4px solid var(--secondary);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
       transition: transform 0.3s ease;
     }
     
+    @media (min-width: 768px) {
+      .pegawai-item {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      }
+    }
+    
     .pegawai-item:hover {
-      transform: translateX(5px);
+      transform: translateX(3px);
+    }
+    
+    @media (min-width: 768px) {
+      .pegawai-item:hover {
+        transform: translateX(5px);
+      }
     }
     
     .remove-pegawai {
       position: absolute;
-      right: 15px;
-      top: 15px;
+      right: 10px;
+      top: 10px;
       color: var(--danger);
       cursor: pointer;
       background: #fff;
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: all 0.3s;
+    }
+    
+    @media (min-width: 768px) {
+      .remove-pegawai {
+        right: 15px;
+        top: 15px;
+        width: 28px;
+        height: 28px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
     }
     
     .remove-pegawai:hover {
@@ -355,31 +641,66 @@
     
     .manual-input {
       display: none;
-      margin-top: 15px;
-      padding: 20px;
+      margin-top: 12px;
+      padding: 15px;
       background: #f1f6fc;
-      border-radius: 8px;
+      border-radius: 6px;
       border-left: 4px solid var(--accent);
+    }
+    
+    @media (min-width: 768px) {
+      .manual-input {
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 8px;
+      }
     }
     
     .tabel-pegawai {
       border-collapse: collapse;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: normal;
+      width: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai {
+        margin-bottom: 12px;
+      }
     }
     
     .tabel-pegawai td {
-      padding: 4px 8px;
+      padding: 3px 6px;
       vertical-align: top;
+      font-size: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai td {
+        padding: 4px 8px;
+        font-size: inherit;
+      }
     }
     
     .tabel-pegawai .label {
-      width: 160px;
+      width: 100px;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai .label {
+        width: 160px;
+      }
     }
     
     .tabel-pegawai .titikdua {
-      width: 10px;
+      width: 8px;
       text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai .titikdua {
+        width: 10px;
+      }
     }
 
     /* Efek visual tambahan */
@@ -387,50 +708,76 @@
       position: relative;
     }
     
-    .form-section::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 1px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, #dde4eb, transparent);
+    @media (min-width: 900px) {
+      .form-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, #dde4eb, transparent);
+      }
     }
 
     /* Navigation buttons */
     .nav-buttons {
       display: flex;
-      justify-content: space-between;
-      padding: 15px 25px;
-      background: var(--gray-light);
-      border-top: 1px solid var(--gray);
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 20px;
+      background: #f8f9fa;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 25px;
+      }
     }
     
     .nav-btn {
-      padding: 12px 25px;
+      padding: 10px 18px;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 6px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s;
       display: flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-left: 10px;
-      margin-right: 10px;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+        gap: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
     }
     
     .nav-btn.back {
-      background: var(--gray);
+      background: #e9ecef;
       color: var(--dark);
     }
     
     .nav-btn.back:hover {
       background: #ff5e00;
+      color: white;
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn.back:hover {
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
     }
     
     .nav-btn.next {
@@ -441,7 +788,13 @@
     .nav-btn.next:hover {
       background: #444445;
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn.next:hover {
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
     }
     
     /* Animasi untuk elemen form */
@@ -461,29 +814,40 @@
     .form-group:nth-child(5) { animation-delay: 0.5s; }
     .btn-group { animation-delay: 0.6s; }
     
-    /* Responsivitas */
-    @media (max-width: 900px) {
-      .app-container {
-        flex-direction: column;
+    /* Responsivitas tambahan untuk layar sangat kecil */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
       }
       
-      .form-section {
-        border-right: none;
-        border-bottom: 1px solid #eee;
+      .header h1 {
+        font-size: 18px;
       }
       
-      .form-section::after {
-        display: none;
+      .header p {
+        font-size: 12px;
       }
-
-       .nav-buttons {
-        flex-direction: column;
-        gap: 10px;
+      
+      .form-section, .preview-section {
+        padding: 15px;
+      }
+      
+      .section-title {
+        font-size: 16px;
+      }
+      
+      .surat-container {
+        padding: 15px;
+        font-size: 12px;
+      }
+      
+      .nav-buttons {
+        padding: 10px 15px;
       }
       
       .nav-btn {
-        width: 100%;
-        justify-content: center;
+        padding: 8px 14px;
+        font-size: 13px;
       }
     }
   </style>
@@ -520,7 +884,34 @@
             </div>
             <div class="form-group">
               <label for="manualPangkat"><i class="fas fa-award"></i> Pangkat/Golongan:</label>
-              <input type="text" id="manualPangkat" placeholder="Pangkat/Golongan">
+              <select id="manualPangkat">
+                <option value="">Pilih Pangkat/Golongan</option>
+                <optgroup label="Juru">
+                  <option value="Juru Muda / I a">Juru Muda / I a</option>
+                  <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                  <option value="Juru / I c">Juru / I c</option>
+                  <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                </optgroup>
+                <optgroup label="Pengatur">
+                  <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                  <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                  <option value="Pengatur / II c">Pengatur / II c</option>
+                  <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                </optgroup>
+                <optgroup label="Penata">
+                  <option value="Penata Muda / III a">Penata Muda / III a</option>
+                  <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                  <option value="Penata / III c">Penata / III c</option>
+                  <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                </optgroup>
+                <optgroup label="Pembina">
+                  <option value="Pembina / IV a">Pembina / IV a</option>
+                  <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                  <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                  <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                  <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                </optgroup>
+              </select>
             </div>
             <div class="form-group">
               <label for="manualJabatan"><i class="fas fa-briefcase"></i> Jabatan:</label>
@@ -544,20 +935,58 @@
           <div id="pegawaiList" class="pegawai-list">
             <div class="pegawai-item">
               <div class="form-group">
-                <label>Nama Pegawai:</label>
-                <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+                <label for="pegawaiSelect1">Pilih Pegawai:</label>
+                <select id="pegawaiSelect1" class="pegawai-select" onchange="togglePegawaiManualInput(this)">
+                  <option value="">Pilih Pegawai</option>
+                  <option value="goeroeh">Goeroeh Tjiptanto, S.Stat, M.T.I</option>
+                  <option value="wahyu">Wahyu Prasetya Adi</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
               </div>
-              <div class="form-group">
-                <label>NIP:</label>
-                <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
-              </div>
-              <div class="form-group">
-                <label>Pangkat/Golongan:</label>
-                <input type="text" class="pegawai-pangkat" placeholder="Contoh: Pembina Tk. I / IV b">
-              </div>
-              <div class="form-group">
-                <label>Jabatan:</label>
-                <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+              <div id="pegawaiManualInput1" class="manual-input">
+                <div class="form-group">
+                  <label>Nama Pegawai:</label>
+                  <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+                </div>
+                <div class="form-group">
+                  <label>NIP:</label>
+                  <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
+                </div>
+                <div class="form-group">
+                  <label>Pangkat/Golongan:</label>
+                  <select class="pegawai-pangkat">
+                    <option value="">Pilih Pangkat/Golongan</option>
+                    <optgroup label="Juru">
+                      <option value="Juru Muda / I a">Juru Muda / I a</option>
+                      <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                      <option value="Juru / I c">Juru / I c</option>
+                      <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                    </optgroup>
+                    <optgroup label="Pengatur">
+                      <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                      <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                      <option value="Pengatur / II c">Pengatur / II c</option>
+                      <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                    </optgroup>
+                    <optgroup label="Penata">
+                      <option value="Penata Muda / III a">Penata Muda / III a</option>
+                      <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                      <option value="Penata / III c">Penata / III c</option>
+                      <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                    </optgroup>
+                    <optgroup label="Pembina">
+                      <option value="Pembina / IV a">Pembina / IV a</option>
+                      <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                      <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                      <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                      <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Jabatan:</label>
+                  <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+                </div>
               </div>
               <span class="remove-pegawai"><i class="fas fa-times"></i></span>
             </div>
@@ -591,7 +1020,7 @@
         </div>
         
         <div class="btn-group">
-          <button class="generate" onclick="generateSurat()"><i class="fas fa-file-alt"></i> Buat Surat</button>
+          <button class="generate pulse" onclick="generateSurat()"><i class="fas fa-file-alt"></i> Buat Surat</button>
           
           <button class="print" onclick="printSurat()"><i class="fas fa-print"></i> Cetak</button>
         </div>
@@ -615,6 +1044,37 @@
   </div>
 
   <script>
+    document.querySelectorAll('button').forEach(button => {
+            // Efek ripple saat tombol diklik
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            // Efek hover untuk semua tombol
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     document.addEventListener('DOMContentLoaded', function() {
       // Set default dates
       const today = new Date();
@@ -636,22 +1096,62 @@
         const pegawaiList = document.getElementById('pegawaiList');
         const newPegawai = document.createElement('div');
         newPegawai.className = 'pegawai-item';
+        const pegawaiCount = pegawaiList.children.length + 1;
+        
         newPegawai.innerHTML = `
           <div class="form-group">
-            <label>Nama Pegawai:</label>
-            <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+            <label for="pegawaiSelect${pegawaiCount}">Pilih Pegawai:</label>
+            <select id="pegawaiSelect${pegawaiCount}" class="pegawai-select" onchange="togglePegawaiManualInput(this)">
+              <option value="">Pilih Pegawai</option>
+              <option value="goeroeh">Goeroeh Tjiptanto, S.Stat, M.T.I</option>
+              <option value="wahyu">Wahyu Prasetya Adi</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label>NIP:</label>
-            <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
-          </div>
-          <div class="form-group">
-            <label>Pangkat/Golongan:</label>
-            <input type="text" class="pegawai-pangkat" placeholder="Contoh: Pembina Tk. I / IV b">
-          </div>
-          <div class="form-group">
-            <label>Jabatan:</label>
-            <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+          <div id="pegawaiManualInput${pegawaiCount}" class="manual-input">
+            <div class="form-group">
+              <label>Nama Pegawai:</label>
+              <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+            </div>
+            <div class="form-group">
+              <label>NIP:</label>
+              <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
+            </div>
+            <div class="form-group">
+              <label>Pangkat/Golongan:</label>
+              <select class="pegawai-pangkat">
+                <option value="">Pilih Pangkat/Golongan</option>
+                <optgroup label="Juru">
+                  <option value="Juru Muda / I a">Juru Muda / I a</option>
+                  <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                  <option value="Juru / I c">Juru / I c</option>
+                  <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                </optgroup>
+                <optgroup label="Pengatur">
+                  <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                  <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                  <option value="Pengatur / II c">Pengatur / II c</option>
+                  <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                </optgroup>
+                <optgroup label="Penata">
+                  <option value="Penata Muda / III a">Penata Muda / III a</option>
+                  <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                  <option value="Penata / III c">Penata / III c</option>
+                  <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                </optgroup>
+                <optgroup label="Pembina">
+                  <option value="Pembina / IV a">Pembina / IV a</option>
+                  <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                  <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                  <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                  <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Jabatan:</label>
+              <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+            </div>
           </div>
           <span class="remove-pegawai"><i class="fas fa-times"></i></span>
         `;
@@ -670,6 +1170,35 @@
         manualInput.style.display = 'block';
       } else {
         manualInput.style.display = 'none';
+      }
+    }
+
+    function togglePegawaiManualInput(selectElement) {
+      const pegawaiValue = selectElement.value;
+      const pegawaiItem = selectElement.closest('.pegawai-item');
+      const manualInput = pegawaiItem.querySelector('.manual-input');
+      const namaInput = pegawaiItem.querySelector('.pegawai-nama');
+      const nipInput = pegawaiItem.querySelector('.pegawai-nip');
+      const pangkatSelect = pegawaiItem.querySelector('.pegawai-pangkat');
+      const jabatanInput = pegawaiItem.querySelector('.pegawai-jabatan');
+      
+      if (pegawaiValue === 'lainnya') {
+        manualInput.style.display = 'block';
+      } else {
+        manualInput.style.display = 'none';
+        
+        // Auto-fill data based on selection
+        if (pegawaiValue === 'goeroeh') {
+          namaInput.value = 'Goeroeh Tjiptanto, S.Stat, M.T.I';
+          nipInput.value = '197101221994031001';
+          pangkatSelect.value = 'Pembina Tk. 1 / IV b';
+          jabatanInput.value = 'Kepala Stasiun Klimatologi Jawa Tengah';
+        } else if (pegawaiValue === 'wahyu') {
+          namaInput.value = 'Wahyu Prasetya Adi';
+          nipInput.value = '197805142000121001';
+          pangkatSelect.value = 'Pembina / IV a';
+          jabatanInput.value = 'Kepala Sub-bagian Tata Usaha';
+        }
       }
     }
 
@@ -695,7 +1224,7 @@
         penandatanganNama = 'Goeroeh Tjiptanto, S.Stat, M.T.I';
         penandatanganNIP = '197101221994031001';
         penandatanganPangkat = 'Pembina Tk. I / IV b';
-        penandatanganJabatan = 'Kepala';
+        penandatanganJabatan = 'Kepala Stasiun Klimatologi Jawa Tengah';
       } else if (penandatangan === 'wahyu') {
         penandatanganNama = 'Wahyu Prasetya Adi';
         penandatanganNIP = '197805142000121001';
@@ -716,19 +1245,38 @@
       pegawaiItems.forEach((item, index) => {
         const nama = item.querySelector('.pegawai-nama').value || 'Nama Pegawai';
         const nip = item.querySelector('.pegawai-nip').value || 'NIP';
-        const pangkat = item.querySelector('.pegawai-pangkat').value || 'Pangkat/Golongan';
+        const pangkatSelect = item.querySelector('.pegawai-pangkat');
+        const pangkat = pangkatSelect ? pangkatSelect.value : 'Pangkat/Golongan';
         const jabatan = item.querySelector('.pegawai-jabatan').value || 'Jabatan';
         
         pegawaiHTML += `
-        <div style="margin-bottom:5px">
-          <table class="tabel-pegawai">
-            <tr><td class="label">Nama</td><td class="titikdua">:</td><td style="text-indent:4px;">${nama}</td></tr>
-            <tr><td class="label">NIP</td><td class="titikdua">:</td><td style="text-indent:4px;">${nip}</td></tr>
-            <tr><td class="label">Pangkat/Golongan</td><td class="titikdua">:</td><td style="text-indent:4px;">${pangkat}</td></tr>
-            <tr><td class="label">Jabatan</td><td class="titikdua">:</td><td style="text-indent:4px;">${jabatan}</td></tr>
-            <tr><td class="label">Unit Organisasi</td><td class="titikdua">:</td><td style="text-indent:4px;">Stasiun Klimatologi Jawa Tengah</td></tr>
-          </table>
-        </div>
+        <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm; font-size:12pt; line-height:1.2; table-layout:fixed;">
+          <tr>
+            <td style="width:160px; vertical-align:top; white-space:nowrap;">Nama</td>
+            <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+            <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${nama}</td>
+          </tr>
+          <tr>
+            <td style="width:160px; vertical-align:top; white-space:nowrap;">NIP</td>
+            <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+            <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${nip}</td>
+          </tr>
+          <tr>
+            <td style="width:160px; vertical-align:top; white-space:nowrap;">Pangkat/Golongan</td>
+            <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+            <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${pangkat}</td>
+          </tr>
+          <tr>
+            <td style="width:160px; vertical-align:top; white-space:nowrap;">Jabatan</td>
+            <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+            <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${jabatan}</td>
+          </tr>
+          <tr>
+            <td style="width:160px; vertical-align:top; white-space:nowrap;">Unit Organisasi</td>
+            <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+            <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">Stasiun Klimatologi Jawa Tengah</td>
+          </tr>
+        </table>
       `;
       });
       
@@ -744,7 +1292,7 @@
             </tr>
           </table>
         </div>
-  <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:3cm; ">
+  <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:1cm; ">
       <!-- Judul -->
       <div style="text-align:center;font-weight:bold;">
         <div style="text-transform:uppercase;">SURAT TUGAS</div>
@@ -757,12 +1305,32 @@
       </p>
 
       <!-- Identitas Penandatangan -->
-      <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm;">
-        <tr style ="margin-bottom:0px;"><td style="width:160px;">Nama</td><td style="width:10px;">:</td><td>${penandatanganNama}</td></tr>
-        <tr><td>NIP</td><td>:</td><td>${penandatanganNIP}</td></tr>
-        <tr><td>Pangkat/Golongan</td><td>:</td><td>${penandatanganPangkat}</td></tr>
-        <tr><td>Jabatan</td><td>:</td><td>${penandatanganJabatan}</td></tr>
-        <tr><td>Unit Organisasi</td><td>:</td><td>Stasiun Klimatologi Jawa Tengah</td></tr>
+      <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm; table-layout:fixed;">
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Nama</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganNama}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">NIP</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganNIP}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Pangkat/Golongan</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganPangkat}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Jabatan</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganJabatan}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Unit Organisasi</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">Stasiun Klimatologi Jawa Tengah</td>
+        </tr>
       </table>
       
 
@@ -776,12 +1344,32 @@
         Untuk melaksanakan :
       </p>
 
-      <table style="border-collapse:collapse;margin-bottom:10px;width:120%;margin-left:0cm; line-height:normal;">
-        <tr style ="margin-bottom:0px;"><td style="width:160px;">Tugas</td><td style="width:10px;">:</td><td>${tugas}</td></tr>
-        <tr><td>Selama</td><td>:</td><td>${lamaTugas}, ${formattedTanggalBerangkat}</td></tr>
-        <tr><td>Lokasi</td><td>:</td><td>${lokasi}</td></tr>
-        <tr><td>Tanggal Berangkat</td><td>:</td><td>${formattedTanggalBerangkat}</td></tr>
-        <tr><td>Sumber Dana</td><td>:</td><td>${sumberDana}</td></tr>
+      <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm; line-height:1.2; table-layout:fixed;">
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Tugas</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${tugas}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Selama</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${lamaTugas}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Lokasi</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${lokasi}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Tanggal Berangkat</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${formattedTanggalBerangkat}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Sumber Dana</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${sumberDana}</td>
+        </tr>
       </table>
 
       <!-- Penutup -->
@@ -807,7 +1395,27 @@
 
  function printSurat() {
   const preview = document.getElementById("suratPreview").innerHTML;
-  const w = window.open('', '', 'height=900,width=700');
+  // Tentukan ukuran jendela baru
+const newWidth = 1000; // Lebar baru (lebih besar)
+const newHeight = 700; // Tinggi baru
+
+// Hitung posisi tengah layar
+// Mendapatkan lebar dan tinggi layar (atau layar kerja, tergantung peramban)
+const screenLeft = window.screenLeft || window.screenX;
+const screenTop = window.screenTop || window.screenY;
+const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
+const screenHeight = window.innerHeight || document.documentElement.clientHeight || screen.height;
+
+// Posisi X (Horizontal)
+const left = ((screenWidth / 2) - (newWidth / 2)) + screenLeft;
+// Posisi Y (Vertikal)
+const top = ((screenHeight / 2) - (newHeight / 2)) + screenTop;
+
+// Buat string fitur untuk window.open
+const features = `height=${newHeight},width=${newWidth},left=${left},top=${top}`;
+
+// Buka jendela baru
+const w = window.open('', 'PopUpJendelaBaru', features);
   w.document.write(`
     <html>
       <head>
@@ -823,7 +1431,7 @@
           line-height:1.2; 
           -webkit-print-color-adjust: exact !important; 
           print-color-adjust: exact !important;
-           } p { text-indent:0px; margin:0 0 0px 0; } table { border-collapse:collapse; width:80.5%; margin-bottom:10px; } 
+           } p { text-indent:0px; margin:0 0 0px 0; } table { border-collapse:collapse; width:71%; margin-bottom:10px; } 
             td { padding:0.5px 0px; vertical-align:top; }
         </style>
       </head>
@@ -837,7 +1445,7 @@
 
             <!-- Logo -->
             <img src="logo_bmkg.png" width="65" 
-                style="position:absolute; left:20px; top:40%; transform:translateY(-40%); margin-left:25px;">
+                style="position:absolute; left:50px; top:40%; transform:translateY(-40%); margin-left:25px;">
 
             <!-- Teks Header -->
             <div style="text-align:center;margin-left:60px;">
@@ -864,8 +1472,6 @@
   w.document.close();
   w.print();
 }
-
-
-</script>
+  </script>
 </body>
 </html>
