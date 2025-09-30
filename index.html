@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Klimatologi</title>
+    <title>Aplikasi Surat Tugas BMKG</title>
+    <link rel="icon" type="image/png" href="logo_bmkg.png">
+    <link rel="shortcut icon" type="image/x-icon" href="logo_bmkg.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -26,15 +28,21 @@
         
         .main-container {
             width: 90%;
-            max-width: 500px; /* Diperkecil dari 650px */
+            max-width: 650px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px; /* Diperkecil dari 28px */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
             transition: all 0.4s ease;
-            padding: 2rem; /* Diperkecil dari 3rem */
+            padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .main-container {
+                padding: 3rem;
+            }
         }
         
         .main-container:before {
@@ -46,13 +54,13 @@
             bottom: -10px;
             z-index: -1;
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            filter: blur(15px); /* Diperkecil dari 20px */
-            opacity: 0.5; /* Diperkecil dari 0.6 */
+            filter: blur(20px);
+            opacity: 0.6;
         }
         
         .main-container:hover {
-            transform: translateY(-3px); /* Diperkecil dari 5px */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18); /* Shadow lebih halus */
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
         
         .logo {
@@ -61,41 +69,59 @@
             left: 20px;
             z-index: 10;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 14px; /* Diperkecil dari 18px */
-            padding: 12px; /* Diperkecil dari 15px */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
+            border-radius: 18px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: all 0.4s ease;
-            width: 70px; /* Diperkecil dari 80px */
-            height: 70px; /* Diperkecil dari 80px */
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
+        @media (min-width: 768px) {
+            .logo {
+                top: 30px;
+                left: 30px;
+                width: 80px;
+                height: 80px;
+                padding: 15px;
+            }
+        }
+        
         .logo:hover {
-            transform: rotate(15deg) scale(1.05); /* Diperkecil dari 1.1 */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Shadow lebih halus */
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .btn-primary {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.2rem 2rem; /* Diperkecil dari 1.5rem 2.5rem */
-            font-size: 1.2rem; /* Diperkecil dari 1.35rem */
-            border-radius: 14px; /* Diperkecil dari 18px */
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 18px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* Shadow lebih halus */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             border: none;
             width: 100%;
-            margin: 1rem 0; /* Diperkecil dari 1.2rem */
+            margin: 1rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .btn-primary {
+                padding: 1.5rem 2.5rem;
+                font-size: 1.35rem;
+                margin: 1.2rem 0;
+            }
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px) scale(1.01); /* Diperkecil dari 5px dan 1.02 */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih halus */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
         }
         
         .btn-primary:after {
@@ -122,12 +148,12 @@
                 opacity: 1;
             }
             20% {
-                transform: scale(20, 20); /* Diperkecil dari 25 */
+                transform: scale(25, 25);
                 opacity: 1;
             }
             100% {
                 opacity: 0;
-                transform: scale(35, 35); /* Diperkecil dari 40 */
+                transform: scale(40, 40);
             }
         }
         
@@ -137,50 +163,75 @@
         
         @keyframes floating {
             0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, 10px); } /* Diperkecil dari 15px */
+            50% { transform: translate(0, 15px); }
             100% { transform: translate(0, -0px); }
         }
         
         .title {
             background: linear-gradient(135deg, #3498db, #2c3e50);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700; /* Diubah dari 800 */
-            font-size: 2.2rem; /* Diperkecil dari 2.8rem */
+            -webkit-text-fill-color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
         
+        @media (min-width: 768px) {
+            .title {
+                font-size: 2.8rem;
+            }
+        }
+        
         .weather-icon {
-            font-size: 2.5rem; /* Diperkecil dari 3rem */
-            margin-bottom: 1rem; /* Diperkecil dari 1.2rem */
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
             color: #3498db;
             animation: pulse 2s infinite;
         }
         
+        @media (min-width: 768px) {
+            .weather-icon {
+                font-size: 3rem;
+            }
+        }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); } /* Diperkecil dari 1.1 */
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
         
         .divider {
-            height: 2px; /* Diperkecil dari 3px */
+            height: 3px;
             background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.4), transparent);
-            margin: 1.5rem 0; /* Diperkecil dari 2rem */
+            margin: 1.5rem 0;
             width: 80%;
             margin-left: auto;
             margin-right: auto;
         }
         
+        @media (min-width: 768px) {
+            .divider {
+                margin: 2rem 0;
+            }
+        }
+        
         .sun {
             position: absolute;
-            top: 10%;
-            right: 14%;
-            font-size: 3rem; /* Diperkecil dari 4rem */
+            top: 5%;
+            right: 5%;
+            font-size: 2.5rem;
             color: #ff7b00;
             animation: rotateSun 30s infinite linear;
-            opacity: 0.6; /* Diperkecil dari 0.7 */
+            opacity: 0.7;
             z-index: -1;
+        }
+        
+        @media (min-width: 768px) {
+            .sun {
+                top: 10%;
+                right: 14%;
+                font-size: 4rem;
+            }
         }
         
         .cloud {
@@ -189,26 +240,40 @@
         }
         
         .cloud-1 {
-            top: 10%;
-            right: 10%;
-            font-size: 4rem; /* Diperkecil dari 5rem */
+            top: 5%;
+            right: 5%;
+            font-size: 3rem;
             color: #0099ff;
             animation: floatCloud 20s infinite ease-in-out;
-            opacity: 0.7; /* Diperkecil dari 0.8 */
+            opacity: 0.8;
         }
         
         .cloud-2 {
-            bottom: 15%;
-            left: 8%;
-            font-size: 3rem; /* Diperkecil dari 4rem */
+            bottom: 10%;
+            left: 5%;
+            font-size: 2.5rem;
             color: #7476ff;
             animation: floatCloud 25s infinite ease-in-out;
             opacity: 0.4;
         }
         
+        @media (min-width: 768px) {
+            .cloud-1 {
+                top: 10%;
+                right: 10%;
+                font-size: 5rem;
+            }
+            
+            .cloud-2 {
+                bottom: 15%;
+                left: 8%;
+                font-size: 4rem;
+            }
+        }
+        
         @keyframes floatCloud {
             0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(20px) translateY(10px); } /* Diperkecil dari 30px dan 15px */
+            50% { transform: translateX(30px) translateY(15px); }
             100% { transform: translateX(0) translateY(0); }
         }
         
@@ -217,16 +282,42 @@
             to { transform: rotate(360deg); }
         }
         
-        .text-content {
-            font-size: 1rem; /* Ukuran font yang lebih sesuai */
-            line-height: 1.5;
+        .footer-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 0.875rem;
+            background: linear-gradient(to right, #38bdf8, #2563eb);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            z-index: 20;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-badge {
+                bottom: 30px;
+                right: 30px;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-badge {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Logo di pojok kiri -->
     <div class="logo">
-        <i class="fas fa-cloud-sun fa-2x text-white"></i> <!-- Diperkecil dari fa-3x -->
+        <i class="fas fa-cloud-sun text-white" style="font-size: 1.8rem;"></i>
     </div>
 
     <!-- Elemen dekoratif matahari -->
@@ -244,7 +335,7 @@
             Menu Surat Tugas 
         </h1>
         
-        <p class="text-gray-600 text-lg mb-6 font-medium text-content">
+        <p class="text-gray-600 text-lg mb-6 font-medium">
             Pilih Salah Satu Menu Sesuai Banyak Orang Yang Ditugaskan
         </p>
         
@@ -269,13 +360,13 @@
         <div class="divider"></div>
         
         <!-- Footer -->
-        <p class="text-sm text-gray-600 mt-6 font-medium">
+        <p class="text-md text-gray-600 mt-6 font-medium">
             <i class="fas fa-temperature-low mr-2 text-blue-500"></i> Staklim Jateng
         </p>
     </div>
 
     <!-- Elemen dekoratif -->
-    <div class="absolute bottom-6 right-6 text-white text-sm bg-gradient-to-r from-blue-400 to-blue-600 py-2 px-4 rounded-full shadow-lg flex items-center">
+    <div class="footer-badge">
         <i class="fas fa-wind mr-2"></i> Surat Tugas Staklim Jateng
     </div>
 </body>
