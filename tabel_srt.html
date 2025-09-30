@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplikasi Surat Tugas BMKG</title>
+   <link rel="icon" type="image/png" href="logo_bmkg.png">
+  <link rel="shortcut icon" type="image/x-icon" href="logo_bmkg.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -30,19 +32,34 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #e6f0ff 0%, #c9e6ff 100%);
       margin: 0;
-      padding: 20px;
+      padding: 15px;
       min-height: 100vh;
       color: #333;
     }
     
+    @media (min-width: 768px) {
+      body {
+        padding: 20px;
+      }
+    }
+    
     .container {
-      max-width: 2500px;
-      margin: 20px auto;
+      max-width: 100%;
+      margin: 0 auto;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .container {
+        margin: 20px auto;
+        max-width: 2500px;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+      }
     }
     
     .container:hover {
@@ -53,10 +70,16 @@
     .header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       color: white;
-      padding: 25px;
+      padding: 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
+    }
+    
+    @media (min-width: 768px) {
+      .header {
+        padding: 30px;
+      }
     }
     
     .header::before {
@@ -71,63 +94,115 @@
     }
     
     .header h1 {
-      font-size: 28px;
-      margin-bottom: 5px;
+      font-size: 22px;
+      margin-bottom: 8px;
       position: relative;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
     
+    @media (min-width: 768px) {
+      .header h1 {
+        font-size: 32px;
+      }
+    }
+    
     .header p {
-      font-size: 16px;
+      font-size: 14px;
       opacity: 0.9;
       position: relative;
     }
     
+    @media (min-width: 768px) {
+      .header p {
+        font-size: 17px;
+      }
+    }
+    
     .header-icon {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 32px;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
       opacity: 0.2;
       transition: opacity 0.3s ease;
     }
     
+    @media (min-width: 768px) {
+      .header-icon {
+        top: 25px;
+        right: 25px;
+        font-size: 38px;
+      }
+    }
+    
     .header:hover .header-icon {
-      opacity: 0.3;
+      opacity: 0.35;
     }
     
     .app-container {
       display: flex;
-      min-height: 600px;
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    @media (min-width: 900px) {
+      .app-container {
+        flex-direction: row;
+        min-height: 600px;
+      }
     }
     
     .form-section {
       flex: 1;
-      padding: 30px;
+      padding: 20px;
       background: #f9fbfd;
-      border-right: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+    }
+    
+    @media (min-width: 900px) {
+      .form-section {
+        padding: 30px;
+        border-right: 1px solid #eaeaea;
+        border-bottom: none;
+      }
     }
     
     .preview-section {
       flex: 1.3;
-      padding: 30px;
+      padding: 20px;
       background: #fff;
       display: flex;
       flex-direction: column;
     }
     
+    @media (min-width: 900px) {
+      .preview-section {
+        padding: 30px;
+      }
+    }
+    
     .section-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       margin-bottom: 20px;
       color: var(--primary);
       padding-bottom: 10px;
-      border-bottom: 3px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+    }
+    
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--primary);
+        gap: 10px;
+      }
     }
     
     .form-group {
@@ -135,32 +210,60 @@
       position: relative;
     }
     
+    @media (min-width: 768px) {
+      .form-group {
+        margin-bottom: 25px;
+      }
+    }
+    
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
       color: var(--primary);
-      font-size: 15px;
+      font-size: 14px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+    }
+    
+    @media (min-width: 768px) {
+      label {
+        margin-bottom: 10px;
+        font-size: 15px;
+        gap: 8px;
+      }
     }
     
     label i {
-      font-size: 14px;
+      font-size: 12px;
       opacity: 0.8;
+    }
+    
+    @media (min-width: 768px) {
+      label i {
+        font-size: 14px;
+      }
     }
     
     select, input, textarea {
       width: 100%;
       padding: 12px 15px;
       border: 1px solid var(--gray);
-      border-radius: 8px;
+      border-radius: 6px;
       font-family: 'Segoe UI', sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       transition: all 0.3s;
       background: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    
+    @media (min-width: 768px) {
+      select, input, textarea {
+        padding: 14px 18px;
+        border-radius: 8px;
+        font-size: 16px;
+      }
     }
     
     select:focus, input:focus, textarea:focus {
@@ -177,71 +280,171 @@
     
     .btn-group {
       display: flex;
-      gap: 15px;
-      margin-top: 30px;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 25px;
     }
     
-    button {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    @media (min-width: 768px) {
+      .btn-group {
+        flex-direction: row;
+        gap: 18px;
+        margin-top: 35px;
+      }
     }
     
-    button.generate { 
-      background: var(--primary); 
-      color: #fff; 
-    }
-    
-    button.generate:hover { 
-      background: var(--primary-dark); 
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    button.download { 
-      background: var(--success); 
-      color: #fff; 
-    }
-    
-    button.download:hover { 
-      background: #218838; 
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    button.print { 
-      background: var(--warning); 
-      color: var(--dark); 
-    }
-    
-    button.print:hover { 
-      background: #e0a800; 
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
+     button {
+            flex: 1;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        @media (min-width: 768px) {
+          button {
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 17px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+            gap: 12px;
+          }
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+
+        button:hover::before {
+            transform: translateX(100%);
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        button.generate { 
+            background: linear-gradient(135deg, var(--primary) 0%, #0d47a1 100%); 
+            color: #fff; 
+        }
+        
+        button.generate:hover { 
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(13, 71, 161, 0.25);
+        }
+        
+        @media (min-width: 768px) {
+          button.generate:hover { 
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px rgba(13, 71, 161, 0.25);
+          }
+        }
+        
+        button.print { 
+            background: linear-gradient(135deg, var(--warning) 0%, #ff8f00 100%); 
+            color: var(--dark); 
+        }
+        
+        button.print:hover { 
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(255, 143, 0, 0.25);
+        }
+        
+        @media (min-width: 768px) {
+          button.print:hover { 
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px rgba(255, 143, 0, 0.25);
+          }
+        }
+
+        .icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+          .icon {
+            font-size: 20px;
+          }
+        }
+
+        button:hover .icon {
+            transform: scale(1.2);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(26, 115, 232, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
     
     .surat-container {
       flex: 1;
-      padding: 30px;
+      padding: 20px;
       border: 1px solid #e0e0e0;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #fdfdfd;
       font-family: "Times New Roman", serif;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.4;
       overflow-y: auto;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease;
+    }
+    
+    @media (min-width: 768px) {
+      .surat-container {
+        padding: 30px;
+        font-size: 15px;
+        line-height: 1.5;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+      }
     }
     
     .surat-container:hover {
@@ -251,16 +454,23 @@
     .surat-header {
       text-align: center;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     
     .surat-title {
         text-align: center;
-        margin: 10px 0 0 0;
-        font-size: 16px;
+        margin: 8px 0 0 0;
+        font-size: 14px;
         font-weight: bold;
         line-height: 1;
         letter-spacing: normal;
+    }
+    
+    @media (min-width: 768px) {
+      .surat-title {
+        margin: 10px 0 0 0;
+        font-size: 16px;
+      }
     }
     
     .surat-title p {
@@ -274,19 +484,37 @@
     }
     
     .surat-footer {
-      margin-top: 30px;
+      margin-top: 20px;
       text-align: center;
     }
     
+    @media (min-width: 768px) {
+      .surat-footer {
+        margin-top: 30px;
+      }
+    }
+    
     .ttd-area {
-      margin-top: 80px;
+      margin-top: 60px;
       text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .ttd-area {
+        margin-top: 80px;
+      }
     }
     
     .ttd-name {
       font-weight: bold;
       text-decoration: none;
-      margin-top: 100px;
+      margin-top: 80px;
+    }
+    
+    @media (min-width: 768px) {
+      .ttd-name {
+        margin-top: 100px;
+      }
     }
     
     .pegawai-list {
@@ -298,16 +526,25 @@
       background: var(--primary-light);
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 6px;
       cursor: pointer;
       margin-top: 10px;
-      font-size: 14px;
+      font-size: 13px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.3s;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    @media (min-width: 768px) {
+      .add-pegawai {
+        padding: 10px 15px;
+        font-size: 14px;
+        gap: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
     }
     
     .add-pegawai:hover {
@@ -318,34 +555,59 @@
     
     .pegawai-item {
       background: #f1f6fc;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
       position: relative;
       border-left: 4px solid var(--primary-light);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
       transition: transform 0.3s ease;
     }
     
+    @media (min-width: 768px) {
+      .pegawai-item {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+      }
+    }
+    
     .pegawai-item:hover {
-      transform: translateX(5px);
+      transform: translateX(3px);
+    }
+    
+    @media (min-width: 768px) {
+      .pegawai-item:hover {
+        transform: translateX(5px);
+      }
     }
     
     .remove-pegawai {
       position: absolute;
-      right: 15px;
-      top: 15px;
+      right: 10px;
+      top: 10px;
       color: var(--danger);
       cursor: pointer;
       background: #fff;
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: all 0.3s;
+    }
+    
+    @media (min-width: 768px) {
+      .remove-pegawai {
+        right: 15px;
+        top: 15px;
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
     }
     
     .remove-pegawai:hover {
@@ -355,44 +617,90 @@
     
     .manual-input {
       display: none;
-      margin-top: 15px;
-      padding: 20px;
+      margin-top: 12px;
+      padding: 15px;
       background: #f1f6fc;
-      border-radius: 8px;
+      border-radius: 6px;
       border-left: 4px solid var(--accent);
+    }
+    
+    @media (min-width: 768px) {
+      .manual-input {
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 8px;
+      }
+    }
+    
+    .manual-pangkat-input {
+      display: none;
+      margin-top: 8px;
     }
     
     .tabel-pegawai {
       border-collapse: collapse;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: normal;
     }
     
+    @media (min-width: 768px) {
+      .tabel-pegawai {
+        margin-bottom: 10px;
+      }
+    }
+    
     .tabel-pegawai td {
-      padding: 2px 6px;
+      padding: 2px 4px;
       vertical-align: top;
+      font-size: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai td {
+        padding: 2px 6px;
+        font-size: inherit;
+      }
     }
     
     .tabel-pegawai .label {
-      width: 160px;
+      width: 120px;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai .label {
+        width: 160px;
+      }
     }
     
     .tabel-pegawai .titikdua {
-      width: 10px;
+      width: 8px;
       text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .tabel-pegawai .titikdua {
+        width: 10px;
+      }
     }
 
     .page-break {
       page-break-before: always;
-      margin-top: 50px;
-      padding-top: 30px;
+      margin-top: 40px;
+      padding-top: 20px;
       border-top: 1px dashed #ccc;
+    }
+    
+    @media (min-width: 768px) {
+      .page-break {
+        margin-top: 50px;
+        padding-top: 30px;
+      }
     }
 
     .lampiran-title {
       text-align: center;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-decoration: underline;
     }
 
@@ -400,50 +708,83 @@
     .pegawai-tabel-lampiran {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      font-size: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .pegawai-tabel-lampiran {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: inherit;
+      }
     }
     
     .pegawai-tabel-lampiran th,
     .pegawai-tabel-lampiran td {
       border: 1px solid #000;
-      padding: 8px;
+      padding: 6px;
       vertical-align: top;
       text-align: left;
     }
     
+    @media (min-width: 768px) {
+      .pegawai-tabel-lampiran th,
+      .pegawai-tabel-lampiran td {
+        padding: 8px;
+      }
+    }
+    
     .pegawai-tabel-lampiran th {
-      background-color: #f2f2f2;
+      background-color: #ffffff;
       text-align: center;
     }
     
     .pegawai-tabel-lampiran tr:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: #ffffff;
     }
     
     /* Navigation buttons */
     .nav-buttons {
       display: flex;
-      justify-content: space-between;
-      padding: 15px 25px;
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 20px;
       background: var(--gray-light);
       border-top: 1px solid var(--gray);
     }
     
+    @media (min-width: 768px) {
+      .nav-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 25px;
+      }
+    }
+    
     .nav-btn {
-      padding: 12px 25px;
+      padding: 10px 18px;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 6px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s;
       display: flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-left: 10px;
-      margin-right: 10px;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+        gap: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
     }
     
     .nav-btn.back {
@@ -454,7 +795,13 @@
     .nav-btn.back:hover {
       background: #ff5e00;
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn.back:hover {
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
     }
     
     .nav-btn.next {
@@ -465,7 +812,13 @@
     .nav-btn.next:hover {
       background: #444445;
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .nav-btn.next:hover {
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
     }
     
     /* Animasi untuk elemen form */
@@ -485,24 +838,46 @@
     .form-group:nth-child(5) { animation-delay: 0.5s; }
     .btn-group { animation-delay: 0.6s; }
     
-    @media (max-width: 900px) {
-      .app-container {
-        flex-direction: column;
+    /* Responsivitas tambahan untuk layar sangat kecil */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
       }
       
-      .form-section {
-        border-right: none;
-        border-bottom: 1px solid #eee;
+      .header h1 {
+        font-size: 18px;
+      }
+      
+      .header p {
+        font-size: 12px;
+      }
+      
+      .form-section, .preview-section {
+        padding: 15px;
+      }
+      
+      .section-title {
+        font-size: 16px;
+      }
+      
+      .surat-container {
+        padding: 15px;
+        font-size: 12px;
       }
       
       .nav-buttons {
-        flex-direction: column;
-        gap: 10px;
+        padding: 10px 15px;
       }
       
       .nav-btn {
-        width: 100%;
-        justify-content: center;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+      
+      .pegawai-tabel-lampiran th,
+      .pegawai-tabel-lampiran td {
+        padding: 4px;
+        font-size: 10px;
       }
     }
   </style>
@@ -539,7 +914,36 @@
             </div>
             <div class="form-group">
               <label for="manualPangkat"><i class="fas fa-award"></i> Pangkat/Golongan:</label>
-              <input type="text" id="manualPangkat" placeholder="Pangkat/Golongan">
+              <select id="manualPangkat" onchange="toggleManualPangkatInput('manual')">
+                <option value="">Pilih Pangkat/Golongan</option>
+                <optgroup label="Juru">
+                  <option value="Juru Muda / I a">Juru Muda / I a</option>
+                  <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                  <option value="Juru / I c">Juru / I c</option>
+                  <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                </optgroup>
+                <optgroup label="Pengatur">
+                  <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                  <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                  <option value="Pengatur / II c">Pengatur / II c</option>
+                  <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                </optgroup>
+                <optgroup label="Penata">
+                  <option value="Penata Muda / III a">Penata Muda / III a</option>
+                  <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                  <option value="Penata / III c">Penata / III c</option>
+                  <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                </optgroup>
+                <optgroup label="Pembina">
+                  <option value="Pembina / IV a">Pembina / IV a</option>
+                  <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                  <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                  <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                  <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                </optgroup>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+              <input type="text" id="manualPangkatLainnya" class="manual-pangkat-input" placeholder="Ketik Pangkat/Golongan">
             </div>
             <div class="form-group">
               <label for="manualJabatan"><i class="fas fa-briefcase"></i> Jabatan:</label>
@@ -563,20 +967,60 @@
           <div id="pegawaiList" class="pegawai-list">
             <div class="pegawai-item">
               <div class="form-group">
-                <label>Nama Pegawai:</label>
-                <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+                <label for="pegawaiSelect1">Pilih Pegawai:</label>
+                <select id="pegawaiSelect1" class="pegawai-select" onchange="togglePegawaiManualInput(this)">
+                  <option value="">Pilih Pegawai</option>
+                  <option value="goeroeh">Goeroeh Tjiptanto, S.Stat, M.T.I</option>
+                  <option value="wahyu">Wahyu Prasetya Adi</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
               </div>
-              <div class="form-group">
-                <label>NIP:</label>
-                <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
-              </div>
-              <div class="form-group">
-                <label>Pangkat/Golongan:</label>
-                <input type="text" class="pegawai-pangkat" placeholder="Contoh: Pembina Tk. I / IV b">
-              </div>
-              <div class="form-group">
-                <label>Jabatan:</label>
-                <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+              <div id="pegawaiManualInput1" class="manual-input">
+                <div class="form-group">
+                  <label>Nama Pegawai:</label>
+                  <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+                </div>
+                <div class="form-group">
+                  <label>NIP:</label>
+                  <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
+                </div>
+                <div class="form-group">
+                  <label>Pangkat/Golongan:</label>
+                  <select class="pegawai-pangkat" onchange="toggleManualPangkatInput('pegawai', this)">
+                    <option value="">Pilih Pangkat/Golongan</option>
+                    <optgroup label="Juru">
+                      <option value="Juru Muda / I a">Juru Muda / I a</option>
+                      <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                      <option value="Juru / I c">Juru / I c</option>
+                      <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                    </optgroup>
+                    <optgroup label="Pengatur">
+                      <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                      <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                      <option value="Pengatur / II c">Pengatur / II c</option>
+                      <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                    </optgroup>
+                    <optgroup label="Penata">
+                      <option value="Penata Muda / III a">Penata Muda / III a</option>
+                      <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                      <option value="Penata / III c">Penata / III c</option>
+                      <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                    </optgroup>
+                    <optgroup label="Pembina">
+                      <option value="Pembina / IV a">Pembina / IV a</option>
+                      <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                      <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                      <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                      <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                    </optgroup>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+                  <input type="text" class="manual-pangkat-input" placeholder="Ketik Pangkat/Golongan">
+                </div>
+                <div class="form-group">
+                  <label>Jabatan:</label>
+                  <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+                </div>
               </div>
               <span class="remove-pegawai"><i class="fas fa-times"></i></span>
             </div>
@@ -610,7 +1054,7 @@
         </div>
         
         <div class="btn-group">
-          <button class="generate" onclick="generateSurat()"><i class="fas fa-file-alt"></i> Buat Surat</button>
+          <button class="generate pulse" onclick="generateSurat()"><i class="fas fa-file-alt"></i> Buat Surat</button>
           <button class="print" onclick="printSurat()"><i class="fas fa-print"></i> Cetak</button>
         </div>
       </div>
@@ -635,6 +1079,37 @@
   </div>
 
   <script>
+    document.querySelectorAll('button').forEach(button => {
+            // Efek ripple saat tombol diklik
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            // Efek hover untuk semua tombol
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     document.addEventListener('DOMContentLoaded', function() {
       // Set default dates
       const today = new Date();
@@ -656,22 +1131,64 @@
         const pegawaiList = document.getElementById('pegawaiList');
         const newPegawai = document.createElement('div');
         newPegawai.className = 'pegawai-item';
+        const pegawaiCount = pegawaiList.children.length + 1;
+        
         newPegawai.innerHTML = `
           <div class="form-group">
-            <label>Nama Pegawai:</label>
-            <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+            <label for="pegawaiSelect${pegawaiCount}">Pilih Pegawai:</label>
+            <select id="pegawaiSelect${pegawaiCount}" class="pegawai-select" onchange="togglePegawaiManualInput(this)">
+              <option value="">Pilih Pegawai</option>
+              <option value="goeroeh">Goeroeh Tjiptanto, S.Stat, M.T.I</option>
+              <option value="wahyu">Wahyu Prasetya Adi</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label>NIP:</label>
-            <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
-          </div>
-          <div class="form-group">
-            <label>Pangkat/Golongan:</label>
-            <input type="text" class="pegawai-pangkat" placeholder="Contoh: Pembina Tk. I / IV b">
-          </div>
-          <div class="form-group">
-            <label>Jabatan:</label>
-            <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+          <div id="pegawaiManualInput${pegawaiCount}" class="manual-input">
+            <div class="form-group">
+              <label>Nama Pegawai:</label>
+              <input type="text" class="pegawai-nama" placeholder="Nama lengkap">
+            </div>
+            <div class="form-group">
+              <label>NIP:</label>
+              <input type="text" class="pegawai-nip" placeholder="Nomor Induk Pegawai">
+            </div>
+            <div class="form-group">
+              <label>Pangkat/Golongan:</label>
+              <select class="pegawai-pangkat" onchange="toggleManualPangkatInput('pegawai', this)">
+                <option value="">Pilih Pangkat/Golongan</option>
+                <optgroup label="Juru">
+                  <option value="Juru Muda / I a">Juru Muda / I a</option>
+                  <option value="Juru Muda Tk. 1 / I b">Juru Muda Tk. 1 / I b</option>
+                  <option value="Juru / I c">Juru / I c</option>
+                  <option value="Juru Tk. 1 / I d">Juru Tk. 1 / I d</option>
+                </optgroup>
+                <optgroup label="Pengatur">
+                  <option value="Pengatur Muda / II a">Pengatur Muda / II a</option>
+                  <option value="Pengatur Muda Tk. 1 / II b">Pengatur Muda Tk. 1 / II b</option>
+                  <option value="Pengatur / II c">Pengatur / II c</option>
+                  <option value="Pengatur Tk. 1 / II d">Pengatur Tk. 1 / II d</option>
+                </optgroup>
+                <optgroup label="Penata">
+                  <option value="Penata Muda / III a">Penata Muda / III a</option>
+                  <option value="Penata Muda Tk. 1 / III b">Penata Muda Tk. 1 / III b</option>
+                  <option value="Penata / III c">Penata / III c</option>
+                  <option value="Penata Tk. 1 / III d">Penata Tk. 1 / III d</option>
+                </optgroup>
+                <optgroup label="Pembina">
+                  <option value="Pembina / IV a">Pembina / IV a</option>
+                  <option value="Pembina Tk. 1 / IV b">Pembina Tk. 1 / IV b</option>
+                  <option value="Pembina Utama Muda / IV c">Pembina Utama Muda / IV c</option>
+                  <option value="Pembina Utama Madya / IV d">Pembina Utama Madya / IV d</option>
+                  <option value="Pembina Utama / IV e">Pembina Utama / IV e</option>
+                </optgroup>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+              <input type="text" class="manual-pangkat-input" placeholder="Ketik Pangkat/Golongan">
+            </div>
+            <div class="form-group">
+              <label>Jabatan:</label>
+              <input type="text" class="pegawai-jabatan" placeholder="Jabatan pegawai">
+            </div>
           </div>
           <span class="remove-pegawai"><i class="fas fa-times"></i></span>
         `;
@@ -687,6 +1204,59 @@
       const manualInput = document.getElementById('manualInput');
       
       if (penandatangan === 'lainnya') {
+        manualInput.style.display = 'block';
+      } else {
+        manualInput.style.display = 'none';
+      }
+    }
+
+    function togglePegawaiManualInput(selectElement) {
+      const pegawaiValue = selectElement.value;
+      const pegawaiItem = selectElement.closest('.pegawai-item');
+      const manualInput = pegawaiItem.querySelector('.manual-input');
+      const namaInput = pegawaiItem.querySelector('.pegawai-nama');
+      const nipInput = pegawaiItem.querySelector('.pegawai-nip');
+      const pangkatSelect = pegawaiItem.querySelector('.pegawai-pangkat');
+      const jabatanInput = pegawaiItem.querySelector('.pegawai-jabatan');
+      
+      if (pegawaiValue === 'lainnya') {
+        manualInput.style.display = 'block';
+      } else {
+        manualInput.style.display = 'none';
+        
+        // Auto-fill data based on selection
+        if (pegawaiValue === 'goeroeh') {
+          namaInput.value = 'Goeroeh Tjiptanto, S.Stat, M.T.I';
+          nipInput.value = '197101221994031001';
+          pangkatSelect.value = 'Pembina Tk. 1 / IV b';
+          jabatanInput.value = 'Kepala Stasiun Klimatologi Jawa Tengah';
+        } else if (pegawaiValue === 'wahyu') {
+          namaInput.value = 'Wahyu Prasetya Adi';
+          nipInput.value = '197805142000121001';
+          pangkatSelect.value = 'Pembina / IV a';
+          jabatanInput.value = 'Kepala Sub-bagian Tata Usaha';
+        } else {
+          // Clear fields if "Pilih Pegawai" is selected
+          namaInput.value = '';
+          nipInput.value = '';
+          pangkatSelect.value = '';
+          jabatanInput.value = '';
+        }
+      }
+    }
+
+    function toggleManualPangkatInput(type, element) {
+      let manualInput;
+      
+      if (type === 'manual') {
+        manualInput = document.getElementById('manualPangkatLainnya');
+      } else {
+        // For pegawai
+        const parentFormGroup = element.closest('.form-group');
+        manualInput = parentFormGroup.querySelector('.manual-pangkat-input');
+      }
+      
+      if (element.value === 'Lainnya') {
         manualInput.style.display = 'block';
       } else {
         manualInput.style.display = 'none';
@@ -715,9 +1285,9 @@
         penandatanganNama = 'Goeroeh Tjiptanto, S.Stat, M.T.I';
         penandatanganNIP = '197101221994031001';
         penandatanganPangkat = 'Pembina Tk. I / IV b';
-        penandatanganJabatan = 'Kepala';
+        penandatanganJabatan = 'Kepala Stasiun Klimatologi Jawa Tengah';
       } else if (penandatangan === 'wahyu') {
-        penandatanganNama = 'Wahyu Prasetya Adi, S.Si., M.M.';
+        penandatanganNama = 'Wahyu Prasetya Adi';
         penandatanganNIP = '197805142000121001';
         penandatanganPangkat = 'Pembina / IV a';
         penandatanganJabatan = 'Kepala Sub-bagian Tata Usaha';
@@ -725,7 +1295,15 @@
         // Manual input
         penandatanganNama = document.getElementById('manualNama').value || "Nama Penandatangan";
         penandatanganNIP = document.getElementById('manualNIP').value || "NIP Penandatangan";
-        penandatanganPangkat = document.getElementById('manualPangkat').value || "Pangkat/Golongan";
+        
+        // Handle manual pangkat with "Lainnya" option
+        const manualPangkatSelect = document.getElementById('manualPangkat');
+        if (manualPangkatSelect.value === 'Lainnya') {
+          penandatanganPangkat = document.getElementById('manualPangkatLainnya').value || "Pangkat/Golongan";
+        } else {
+          penandatanganPangkat = manualPangkatSelect.value || "Pangkat/Golongan";
+        }
+        
         penandatanganJabatan = document.getElementById('manualJabatan').value || "Jabatan Penandatangan";
       }
       
@@ -736,10 +1314,10 @@
           <thead>
         <tr>
             <th colspan="5" style="font-color: black; text-align:left; font-size:12pt;">Lokasi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ${lokasi}<br>
-                Tanggal&ensp;&nbsp;<a style="margin-left:-0.5px;">:</a> ${formattedTanggalBerangkat}</th>
+                Tanggal&ensp;&nbsp;<a style="margin-left:0px;">:</a> ${formattedTanggalBerangkat}</th>
         </tr>
-            <tr style="background-color: #f2f2f2;">
-              <th style="width: 50px; text-align: center;">No.</th>
+            <tr style="background-color: #fffff;">
+              <th style="width: 20px; text-align: center;">No</th>
               <th>Nama</th>
               <th>NIP</th>
               <th>Pangkat/Golongan</th>
@@ -752,14 +1330,24 @@
       pegawaiItems.forEach((item, index) => {
         const nama = item.querySelector('.pegawai-nama').value || 'Nama Pegawai';
         const nip = item.querySelector('.pegawai-nip').value || 'NIP';
-        const pangkat = item.querySelector('.pegawai-pangkat').value || 'Pangkat/Golongan';
+        
+        // Handle pangkat with "Lainnya" option
+        const pangkatSelect = item.querySelector('.pegawai-pangkat');
+        let pangkat;
+        if (pangkatSelect.value === 'Lainnya') {
+          const manualInput = pangkatSelect.closest('.form-group').querySelector('.manual-pangkat-input');
+          pangkat = manualInput.value || 'Pangkat/Golongan';
+        } else {
+          pangkat = pangkatSelect.value || 'Pangkat/Golongan';
+        }
+        
         const jabatan = item.querySelector('.pegawai-jabatan').value || 'Jabatan';
         
         pegawaiHTML += `
           <tr>
             <td style="text-align: center;">${index + 1}.</td>
             <td>${nama}</td>
-            <td>${nip}</td>
+            <td style="text-align: center;">${nip}</td>
             <td>${pangkat}</td>
             <td>${jabatan}</td>
           </tr>
@@ -780,7 +1368,7 @@
             </tr>
           </table>
         </div>
-      <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:3cm; ">
+      <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:1.5cm; ">
         <!-- Judul -->
         <div style="text-align:center;font-weight:bold;">
           <div style="text-transform:uppercase;">SURAT TUGAS</div>
@@ -812,7 +1400,7 @@
           Untuk melaksanakan :
         </p>
 
-        <table style="border-collapse:collapse;margin-bottom:10px;width:120%;margin-left:0cm; line-height:normal;">
+        <table style="border-collapse:collapse;margin-bottom:10px;width:120%;margin-left:0cm; line-height:normal; text-align:justify;">
           <tr style ="margin-bottom:0px;"><td style="width:160px;">Tugas</td><td style="width:10px;">:</td><td>${tugas}</td></tr>
           <tr><td>Selama</td><td>:</td><td>${lamaTugas}, ${formattedTanggalBerangkat}</td></tr>
           <tr><td>Lokasi</td><td>:</td><td>${lokasi}</td></tr>
@@ -834,21 +1422,23 @@
           <div>${penandatanganNama}</div>
         </div>
 
+        </div> </div>
         <!-- Lampiran di halaman baru -->
         <div class="page-break">
-          <div style="margin-left:40%">Lampiran I</div>
-          <div style="margin-bottom:10px;margin-left:40%">
+          <div style="margin-left:40%; margin-bottom:3px;">Lampiran I</div>
+          <div style="margin-bottom:10px;margin-left:40%; line-height:1.2;">
             Nomor <a style="margin-left:20px">:</a> ${nomorSurat}<br>
             Tanggal <a style="margin-left:13.5px">:</a> ${formattedTanggalSurat}
           </div>
           
-          <p style="text-align:center;text-indent:0cm;margin:0; margin-bottom: 15px; margin-top: 10px;">
+          <p style="text-align:center;text-indent:0cm;margin:0; margin-bottom: 15px; margin-top: 15px;">
               DAFTAR NAMA PEJABAT DAN PEGAWAI YANG DIBERI TUGAS  
           </p>
-          
+      
+          <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:1.5cm; padding-right:1cm; ">
           ${pegawaiHTML}
-        </div>
-      </div>
+          </div>
+       
     `;
       
       // Update the preview
@@ -857,7 +1447,27 @@
 
     function printSurat() {
       const preview = document.getElementById("suratPreview").innerHTML;
-      const w = window.open('', '', 'height=900,width=700');
+      // Tentukan ukuran jendela baru
+const newWidth = 1000; // Lebar baru (lebih besar)
+const newHeight = 700; // Tinggi baru
+
+// Hitung posisi tengah layar
+// Mendapatkan lebar dan tinggi layar (atau layar kerja, tergantung peramban)
+const screenLeft = window.screenLeft || window.screenX;
+const screenTop = window.screenTop || window.screenY;
+const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
+const screenHeight = window.innerHeight || document.documentElement.clientHeight || screen.height;
+
+// Posisi X (Horizontal)
+const left = ((screenWidth / 2) - (newWidth / 2)) + screenLeft;
+// Posisi Y (Vertikal)
+const top = ((screenHeight / 2) - (newHeight / 2)) + screenTop;
+
+// Buat string fitur untuk window.open
+const features = `height=${newHeight},width=${newWidth},left=${left},top=${top}`;
+
+// Buka jendela baru
+const w = window.open('', 'PopUpJendelaBaru', features);
       w.document.write(`
         <html>
           <head>
@@ -872,20 +1482,20 @@
               @media print {
                 .page-break {
                   page-break-before: always;
-                  margin-top: 50px;
+                  margin-top: 80px;
                   padding-top: 50px;
                 }
               }
               body { 
                 font-family:'Times New Roman', serif; 
                 font-size:12pt; 
-                line-height:1.2; 
+                line-height:1; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important;
               } 
               p { text-indent:0px; margin:0 0 0px 0; } 
               table { border-collapse:collapse; width:81%; margin-bottom:10px; } 
-              td { padding:0.5px 0px; vertical-align:top; }
+              td { padding:0px 0px; vertical-align:top; }
               .lampiran-title {
                 text-align: center;
                 font-weight: bold;
@@ -903,16 +1513,16 @@
               .pegawai-tabel-lampiran th,
               .pegawai-tabel-lampiran td {
                 border: 1px solid #000;
-                padding: 8px;
+                padding: 7px;
                 vertical-align: top;
                 text-align: left;
               }
               .pegawai-tabel-lampiran th {
-                background-color: #f2f2f2;
+                background-color: #fffff;
                 text-align: center;
               }
               .pegawai-tabel-lampiran tr:nth-child(even) {
-                background-color: #f9f9f9;
+                background-color: #fffff;
               }
             </style>
           </head>
@@ -926,10 +1536,10 @@
 
                 <!-- Logo -->
                 <img src="logo_bmkg.png" width="65" 
-                    style="position:absolute; left:20px; top:40%; transform:translateY(-40%); margin-left:25px;">
+                    style="position:absolute; left:50px; top:40%; transform:translateY(-40%); margin-left:25px;">
 
                 <!-- Teks Header -->
-                <div style="text-align:center;margin-left:60px;">
+                <div style="text-align:center;margin-left:60px; line-height:1.2;">
                   <div style="font-size:14pt; font-weight:bold;">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</div>
                   <div style="font-size:14pt; font-weight:bold;">STASIUN KLIMATOLOGI JAWA TENGAH</div>
                   <div style="font-size:12pt;">Jl. Siliwangi No. 291 Semarang 50145 Telp. 024-7609016 Fax. 024-7612394</div>
@@ -954,5 +1564,4 @@
     }
   </script>
 </body>
-
 </html>
