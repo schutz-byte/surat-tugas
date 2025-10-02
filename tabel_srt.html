@@ -997,10 +997,12 @@
         <table class="pegawai-tabel-lampiran">
           <thead>
         <tr>
-            <th colspan="5" style="font-color: black; text-align:left; font-size:12pt;">Lokasi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ${lokasi}<br>
-                Tanggal&ensp;&nbsp;<a style="margin-left:0px;">:</a> ${formattedTanggalBerangkat}</th>
+            <th colspan="5" style="font-color: black; text-align:left; font-size:12pt;border-bottom:none; margin-bottom: 0; padding-bottom: 0px; line-height: 1.2;">Lokasi <a style="margin-left:10px;">:</a> ${lokasi}</th>
         </tr>
-            <tr style="background-color: #fffff;">
+        <tr>
+         <th colspan="5" style="font-color: black; text-align:left; font-size:12pt;border-top:none; margin-top: 0; padding-top: 0px; line-height: 1.2;">Tanggal <a style="margin-left:1.5px;">:</a> ${formattedTanggalBerangkat}</th>
+         </tr>   
+         <tr style="background-color: #fffff;">
               <th style="width: 20px; text-align: center;">No</th>
               <th>Nama</th>
               <th>NIP</th>
@@ -1052,26 +1054,46 @@
             </tr>
           </table>
         </div>
-      <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:1.5cm; ">
-        <!-- Judul -->
-        <div style="text-align:center;font-weight:bold;">
-          <div style="text-transform:uppercase;">SURAT TUGAS</div>
-          <div style="margin-top:0px;">NOMOR : ${nomorSurat}</div>
-        </div>
-        <br>
-        <!-- Pembuka -->
-        <p style="text-align:justify;text-indent:0cm;margin:0; margin-bottom: 5px">
-          Yang bertanda tangan di bawah ini :
-        </p>
+      <div style="font-family:'Times New Roman',serif;font-size:12pt;line-height:1.2; padding-left:2cm; padding-right:2cm; ">
+      <!-- Judul -->
+      <div style="text-align:center;font-weight:bold;">
+        <div style="text-transform:uppercase;">SURAT TUGAS</div>
+        <div style="margin-top:0px;">NOMOR : ${nomorSurat}</div>
+      </div>
+      <br>
+      <!-- Pembuka -->
+      <p style="text-align:justify;text-indent:0cm;margin:0; margin-bottom: 5px">
+        Yang bertanda tangan di bawah ini :
+      </p>
 
-        <!-- Identitas Penandatangan -->
-        <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm;">
-          <tr style ="margin-bottom:0px;"><td style="width:160px;">Nama</td><td style="width:10px;">:</td><td>${penandatanganNama}</td></tr>
-          <tr><td>NIP</td><td>:</td><td>${penandatanganNIP}</td></tr>
-          <tr><td>Pangkat/Golongan</td><td>:</td><td>${penandatanganPangkat}</td></tr>
-          <tr><td>Jabatan</td><td>:</td><td>${penandatanganJabatan}</td></tr>
-          <tr><td>Unit Organisasi</td><td>:</td><td>Stasiun Klimatologi Jawa Tengah</td></tr>
-        </table>
+      <!-- Identitas Penandatangan -->
+      <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm; table-layout:fixed;">
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Nama</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganNama}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">NIP</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganNIP}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Pangkat/Golongan</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganPangkat}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Jabatan</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">${penandatanganJabatan}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Unit Organisasi</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; text-indent:0px;">Stasiun Klimatologi Jawa Tengah</td>
+        </tr>
+      </table>
         
        <p style="text-align:justify;text-indent:0cm;margin:0; margin-top: 20px">
             Dengan ini memberikan tugas kepada : 
@@ -1084,13 +1106,33 @@
           Untuk melaksanakan :
         </p>
 
-        <table style="border-collapse:collapse;margin-bottom:10px;width:120%;margin-left:0cm; line-height:normal; text-align:justify;">
-          <tr style ="margin-bottom:0px;"><td style="width:160px;">Tugas</td><td style="width:10px;">:</td><td>${tugas}</td></tr>
-          <tr><td>Selama</td><td>:</td><td>${lamaTugas}, ${formattedTanggalBerangkat}</td></tr>
-          <tr><td>Lokasi</td><td>:</td><td>${lokasi}</td></tr>
-          <tr><td>Tanggal Berangkat</td><td>:</td><td>${formattedTanggalBerangkat}</td></tr>
-          <tr><td>Sumber Dana</td><td>:</td><td>${sumberDana}</td></tr>
-        </table>
+        <table style="border-collapse:collapse;margin-bottom:10px;width:100%;margin-left:0cm; line-height:1.2; table-layout:fixed;">
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Tugas</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${tugas}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Selama</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${lamaTugas}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Lokasi</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${lokasi}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Tanggal Berangkat</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${formattedTanggalBerangkat}</td>
+        </tr>
+        <tr>
+          <td style="width:160px; vertical-align:top; white-space:nowrap;">Sumber Dana</td>
+          <td style="width:10px; vertical-align:top; text-align:center;">:</td>
+          <td style="vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; white-space:normal;">${sumberDana}</td>
+        </tr>
+      </table>
 
         <!-- Penutup -->
         <p style="text-align:justify;text-indent:0px;margin:0; margin-top: 20px;">
@@ -1105,7 +1147,6 @@
         <div style="margin-top:120px; margin-left:45%;">
           <div>${penandatanganNama}</div>
         </div>
-
         </div> </div>
         <!-- Lampiran di halaman baru -->
         <div class="page-break">
@@ -1131,27 +1172,28 @@
 
     function printSurat() {
       const preview = document.getElementById("suratPreview").innerHTML;
+      
       // Tentukan ukuran jendela baru
-const newWidth = 1000; // Lebar baru (lebih besar)
-const newHeight = 700; // Tinggi baru
+      const newWidth = 1000;
+      const newHeight = 700;
 
-// Hitung posisi tengah layar
-// Mendapatkan lebar dan tinggi layar (atau layar kerja, tergantung peramban)
-const screenLeft = window.screenLeft || window.screenX;
-const screenTop = window.screenTop || window.screenY;
-const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
-const screenHeight = window.innerHeight || document.documentElement.clientHeight || screen.height;
+      // Hitung posisi tengah layar
+      const screenLeft = window.screenLeft || window.screenX;
+      const screenTop = window.screenTop || window.screenY;
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
+      const screenHeight = window.innerHeight || document.documentElement.clientHeight || screen.height;
 
-// Posisi X (Horizontal)
-const left = ((screenWidth / 2) - (newWidth / 2)) + screenLeft;
-// Posisi Y (Vertikal)
-const top = ((screenHeight / 2) - (newHeight / 2)) + screenTop;
+      // Posisi X (Horizontal)
+      const left = ((screenWidth / 2) - (newWidth / 2)) + screenLeft;
+      // Posisi Y (Vertikal)
+      const top = ((screenHeight / 2) - (newHeight / 2)) + screenTop;
 
-// Buat string fitur untuk window.open
-const features = `height=${newHeight},width=${newWidth},left=${left},top=${top}`;
+      // Buat string fitur untuk window.open
+      const features = `height=${newHeight},width=${newWidth},left=${left},top=${top}`;
 
-// Buka jendela baru
-const w = window.open('', 'PopUpJendelaBaru', features);
+      // Buka jendela baru
+      const w = window.open('', 'PopUpJendelaBaru', features);
+      
       w.document.write(`
         <html>
           <head>
@@ -1173,13 +1215,15 @@ const w = window.open('', 'PopUpJendelaBaru', features);
               body { 
                 font-family:'Times New Roman', serif; 
                 font-size:12pt; 
-                line-height:1; 
+                line-height:1.2; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important;
+                margin: 0;
+                padding: 0;
               } 
               p { text-indent:0px; margin:0 0 0px 0; } 
-              table { border-collapse:collapse; width:81%; margin-bottom:10px; } 
-              td { padding:0px 0px; vertical-align:top; }
+              table { border-collapse:collapse; width:71%; margin-bottom:10px; } 
+              td { padding:0.5px 0px; vertical-align:top; }
               .lampiran-title {
                 text-align: center;
                 font-weight: bold;
@@ -1212,7 +1256,7 @@ const w = window.open('', 'PopUpJendelaBaru', features);
           </head>
           <body>
             <div style="background-color:rgb(150,150,150); 
-                padding:17px; 
+                padding:18px; 
                 color:black; 
                 margin-bottom:0; 
                 position:relative;
@@ -1220,7 +1264,7 @@ const w = window.open('', 'PopUpJendelaBaru', features);
 
                 <!-- Logo -->
                 <img src="logo_bmkg.png" width="65" 
-                    style="position:absolute; left:50px; top:40%; transform:translateY(-40%); margin-left:25px;">
+                    style="position:absolute; left:50px; top:40%; transform:translateY(-40%); margin-left:15px;">
 
                 <!-- Teks Header -->
                 <div style="text-align:center;margin-left:60px; line-height:1.2;">
