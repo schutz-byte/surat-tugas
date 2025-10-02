@@ -24,6 +24,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-x: hidden;
         }
         
         .main-container {
@@ -37,6 +38,7 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
+            z-index: 10;
         }
         
         @media (min-width: 768px) {
@@ -67,32 +69,57 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            z-index: 10;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 18px;
-            padding: 12px;
+            z-index: 20;
+            background: white;
+            border-radius: 20px;
+            padding: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: all 0.4s ease;
-            width: 60px;
-            height: 60px;
+            width: 120px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            border: 3px solid #e0f2fe;
         }
         
         @media (min-width: 768px) {
             .logo {
                 top: 30px;
                 left: 30px;
-                width: 80px;
-                height: 80px;
+                width: 150px;
+                height: 150px;
                 padding: 15px;
+                border-radius: 25px;
+                border-width: 4px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 100px;
+                height: 100px;
+                padding: 8px;
             }
         }
         
         .logo:hover {
-            transform: rotate(15deg) scale(1.1);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            border-color: #38bdf8;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
         }
         
         .btn-primary {
@@ -223,7 +250,7 @@
             color: #ff7b00;
             animation: rotateSun 30s infinite linear;
             opacity: 0.7;
-            z-index: -1;
+            z-index: 1;
         }
         
         @media (min-width: 768px) {
@@ -236,14 +263,15 @@
         
         .cloud {
             position: absolute;
-            z-index: -1;
+            z-index: 2;
+            color: #f8fafc; /* Warna putih untuk awan */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
         .cloud-1 {
             top: 5%;
             right: 5%;
             font-size: 3rem;
-            color: #0099ff;
             animation: floatCloud 20s infinite ease-in-out;
             opacity: 0.8;
         }
@@ -252,9 +280,32 @@
             bottom: 10%;
             left: 5%;
             font-size: 2.5rem;
-            color: #7476ff;
             animation: floatCloud 25s infinite ease-in-out;
             opacity: 0.4;
+        }
+
+        .cloud-3 {
+            bottom: 15%;
+            left: 15%;
+            font-size: 3.5rem;
+            animation: floatCloud 30s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        .cloud-4 {
+            bottom: 5%;
+            left: 25%;
+            font-size: 2rem;
+            animation: floatCloud 35s infinite ease-in-out;
+            opacity: 0.5;
+        }
+
+        .cloud-5 {
+            bottom: 25%;
+            left: 8%;
+            font-size: 2.8rem;
+            animation: floatCloud 40s infinite ease-in-out;
+            opacity: 0.7;
         }
         
         @media (min-width: 768px) {
@@ -267,6 +318,24 @@
             .cloud-2 {
                 bottom: 15%;
                 left: 8%;
+                font-size: 4rem;
+            }
+
+            .cloud-3 {
+                bottom: 20%;
+                left: 20%;
+                font-size: 5rem;
+            }
+
+            .cloud-4 {
+                bottom: 10%;
+                left: 30%;
+                font-size: 3rem;
+            }
+
+            .cloud-5 {
+                bottom: 30%;
+                left: 12%;
                 font-size: 4rem;
             }
         }
@@ -312,19 +381,101 @@
                 padding: 8px 12px;
             }
         }
+
+        /* Container untuk awan tambahan */
+        .clouds-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* Animasi Hujan */
+        .rain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .raindrop {
+            position: absolute;
+            top: -50px;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(200, 200, 255, 0.5));
+            border-radius: 0 0 5px 5px;
+            animation: rain linear infinite;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(0) rotate(10deg);
+                opacity: 1;
+            }
+            70% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        /* Efek Splash Air */
+        .splash {
+            position: absolute;
+            bottom: 0;
+            width: 15px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            animation: splash 0.5s ease-out;
+        }
+
+        @keyframes splash {
+            0% {
+                opacity: 1;
+                transform: scale(0);
+            }
+            80% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Logo di pojok kiri -->
     <div class="logo">
-        <i class="fas fa-cloud-sun text-white" style="font-size: 1.8rem;"></i>
+        <img src="logo_bmkg.png" alt="Logo BMKG">
     </div>
 
     <!-- Elemen dekoratif matahari -->
     <i class="sun fas fa-sun"></i>
-    <!-- Elemen dekoratif awan -->
+    <!-- Elemen dekoratif awan utama -->
     <i class="cloud cloud-1 fas fa-cloud"></i>
     <i class="cloud cloud-2 fas fa-cloud"></i>
+    <i class="cloud cloud-3 fas fa-cloud"></i>
+    <i class="cloud cloud-4 fas fa-cloud"></i>
+    <i class="cloud cloud-5 fas fa-cloud"></i>
+    
+    <!-- Container untuk awan tambahan -->
+    <div class="clouds-container" id="cloudsContainer"></div>
+    
+    <!-- Kontainer untuk animasi hujan -->
+    <div class="rain-container" id="rainContainer"></div>
     
     <div class="main-container floating text-center">
         <div class="weather-icon">
@@ -369,5 +520,112 @@
     <div class="footer-badge">
         <i class="fas fa-wind mr-2"></i> Surat Tugas Staklim Jateng
     </div>
+
+    <script>
+        // Fungsi untuk membuat awan tambahan
+        function createClouds() {
+            const cloudsContainer = document.getElementById('cloudsContainer');
+            const cloudCount = 100; // Jumlah awan
+            
+            for (let i = 0; i < cloudCount; i++) {
+                const cloud = document.createElement('i');
+                cloud.classList.add('cloud', 'fas', 'fa-cloud');
+                
+                // Posisi acak - terutama di bagian bawah
+                const left = Math.random() * 100;
+                const bottom = Math.random() * 50; // Awan hanya di bagian bawah 50% layar
+                
+                // Ukuran acak
+                const size = 1 + Math.random() * 4; // Ukuran antara 1rem sampai 5rem
+                
+                // Opacity acak
+                const opacity = 0.2 + Math.random() * 0.6; // Opacity antara 0.2 sampai 0.8
+                
+                // Warna abu-abu dengan variasi
+                const grayValue = 200 + Math.random() * 55; // Nilai antara 200-255 (putih ke abu-abu terang)
+                const color = `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
+                
+                // Animasi dengan durasi acak
+                const animationDuration = 20 + Math.random() * 40; // Durasi antara 20-60 detik
+                const animationDelay = Math.random() * 20; // Delay acak
+                
+                cloud.style.left = `${left}%`;
+                cloud.style.bottom = `${bottom}%`;
+                cloud.style.fontSize = `${size}rem`;
+                cloud.style.opacity = opacity;
+                cloud.style.color = color;
+                cloud.style.animationDuration = `${animationDuration}s`;
+                cloud.style.animationDelay = `${animationDelay}s`;
+                
+                cloudsContainer.appendChild(cloud);
+            }
+        }
+        
+        // Fungsi untuk membuat animasi hujan
+        function createRain() {
+            const rainContainer = document.getElementById('rainContainer');
+            const raindropCount = 50; // Jumlah tetesan hujan
+            
+            for (let i = 0; i < raindropCount; i++) {
+                const raindrop = document.createElement('div');
+                raindrop.classList.add('raindrop');
+                
+                // Posisi acak
+                const left = Math.random() * 100;
+                const animationDuration = 1 + Math.random() * 2; // Durasi antara 1-3 detik
+                const animationDelay = Math.random() * 5; // Delay acak
+                
+                raindrop.style.left = `${left}%`;
+                raindrop.style.animationDuration = `${animationDuration}s`;
+                raindrop.style.animationDelay = `${animationDelay}s`;
+                
+                rainContainer.appendChild(raindrop);
+                
+                // Tambahkan efek splash saat raindrop mencapai bagian bawah
+                setTimeout(() => {
+                    createSplash(left);
+                }, (animationDuration + animationDelay) * 1000);
+            }
+        }
+        
+        // Fungsi untuk membuat efek splash
+        function createSplash(left) {
+            const rainContainer = document.getElementById('rainContainer');
+            const splash = document.createElement('div');
+            splash.classList.add('splash');
+            
+            splash.style.left = `${left}%`;
+            splash.style.bottom = '0';
+            
+            rainContainer.appendChild(splash);
+            
+            // Hapus elemen splash setelah animasi selesai
+            setTimeout(() => {
+                splash.remove();
+            }, 500);
+        }
+        
+        // Jalankan fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            createClouds();
+            createRain();
+            
+            // Buat hujan baru setiap 5 detik untuk efek berkelanjutan
+            setInterval(() => {
+                const rainContainer = document.getElementById('rainContainer');
+                // Hapus beberapa raindrop yang sudah lama
+                const raindrops = rainContainer.querySelectorAll('.raindrop');
+                if (raindrops.length > 100) {
+                    for (let i = 0; i < 50; i++) {
+                        if (raindrops[i]) {
+                            raindrops[i].remove();
+                        }
+                    }
+                }
+                // Tambahkan raindrop baru
+                createRain();
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
