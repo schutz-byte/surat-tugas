@@ -564,7 +564,7 @@
         // Fungsi untuk membuat animasi hujan
         function createRain() {
             const rainContainer = document.getElementById('rainContainer');
-            const raindropCount = 50; // Jumlah tetesan hujan
+            const raindropCount = 25; // Jumlah tetesan hujan
             
             for (let i = 0; i < raindropCount; i++) {
                 const raindrop = document.createElement('div');
@@ -616,7 +616,7 @@
                 // Hapus beberapa raindrop yang sudah lama
                 const raindrops = rainContainer.querySelectorAll('.raindrop');
                 if (raindrops.length > 100) {
-                    for (let i = 0; i < 50; i++) {
+                    for (let i = 0; i < 25; i++) {
                         if (raindrops[i]) {
                             raindrops[i].remove();
                         }
@@ -629,3 +629,4 @@
     </script>
 </body>
 </html>
+
