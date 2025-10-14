@@ -13,6 +13,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), 
@@ -20,21 +26,22 @@
             background-size: cover;
             position: relative;
             min-height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
             overflow-x: hidden;
+            padding: 20px;
         }
         
         .main-container {
             width: 90%;
-            max-width: 650px;
+            max-width: 500px; /* Diperkecil dari 650px */
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 28px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 20px; /* Diperkecil dari 28px */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Diperkecil */
             transition: all 0.4s ease;
-            padding: 2rem;
+            padding: 1.5rem; /* Diperkecil dari 2rem */
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
@@ -43,70 +50,70 @@
         
         @media (min-width: 768px) {
             .main-container {
-                padding: 3rem;
+                padding: 2rem; /* Diperkecil dari 3rem */
             }
         }
         
         .main-container:before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            top: -8px; /* Diperkecil */
+            left: -8px; /* Diperkecil */
+            right: -8px; /* Diperkecil */
+            bottom: -8px; /* Diperkecil */
             z-index: -1;
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            filter: blur(20px);
+            filter: blur(15px); /* Diperkecil dari 20px */
             opacity: 0.6;
         }
         
         .main-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px); /* Efek lebih kecil */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18); /* Diperkecil */
         }
         
         .logo {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px; /* Diperkecil */
+            left: 15px; /* Diperkecil */
             z-index: 20;
             background: white;
-            border-radius: 20px;
-            padding: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 15px; /* Diperkecil */
+            padding: 8px; /* Diperkecil */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Diperkecil */
             transition: all 0.4s ease;
-            width: 120px;
-            height: 120px;
+            width: 90px; /* Diperkecil */
+            height: 90px; /* Diperkecil */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 3px solid #e0f2fe;
+            border: 2px solid #e0f2fe; /* Diperkecil */
         }
         
         @media (min-width: 768px) {
             .logo {
-                top: 30px;
-                left: 30px;
-                width: 100px;
-                height: 100px;
-                padding: 15px;
-                border-radius: 25px;
-                border-width: 4px;
+                top: 20px; /* Diperkecil */
+                left: 20px; /* Diperkecil */
+                width: 80px; /* Diperkecil */
+                height: 80px; /* Diperkecil */
+                padding: 10px; /* Diperkecil */
+                border-radius: 20px; /* Diperkecil */
+                border-width: 3px; /* Diperkecil */
             }
         }
         
         @media (max-width: 480px) {
             .logo {
-                width: 100px;
-                height: 100px;
-                padding: 8px;
+                width: 70px; /* Diperkecil */
+                height: 70px; /* Diperkecil */
+                padding: 6px; /* Diperkecil */
             }
         }
         
         .logo:hover {
             transform: rotate(5deg) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Diperkecil */
             border-color: #38bdf8;
         }
         
@@ -114,7 +121,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 15px;
+            border-radius: 12px; /* Diperkecil */
             transition: transform 0.3s ease;
         }
         
@@ -126,29 +133,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.2rem 1.5rem;
-            font-size: 1.1rem;
-            border-radius: 18px;
+            padding: 1rem 1.2rem; /* Diperkecil */
+            font-size: 1rem; /* Diperkecil */
+            border-radius: 15px; /* Diperkecil */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* Diperkecil */
             border: none;
             width: 100%;
-            margin: 1rem 0;
+            margin: 0.8rem 0; /* Diperkecil */
         }
         
         @media (min-width: 768px) {
             .btn-primary {
-                padding: 1.5rem 2.5rem;
-                font-size: 1.35rem;
-                margin: 1.2rem 0;
+                padding: 1.2rem 2rem; /* Diperkecil */
+                font-size: 1.1rem; /* Diperkecil */
+                margin: 1rem 0; /* Diperkecil */
             }
         }
         
         .btn-primary:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px) scale(1.02); /* Efek lebih kecil */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Diperkecil */
         }
         
         .btn-primary:after {
@@ -190,47 +197,47 @@
         
         @keyframes floating {
             0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, 15px); }
+            50% { transform: translate(0, 10px); } /* Diperkecil */
             100% { transform: translate(0, -0px); }
         }
         
         .title {
             background: linear-gradient(135deg, #3498db, #2c3e50);
             -webkit-text-fill-color: white;
-            font-weight: 800;
-            font-size: 1.8rem;
+            font-weight: 700; /* Diperkecil dari 800 */
+            font-size: 1.5rem; /* Diperkecil */
             margin-bottom: 0.5rem;
         }
         
         @media (min-width: 768px) {
             .title {
-                font-size: 2.8rem;
+                font-size: 2rem; /* Diperkecil dari 2.8rem */
             }
         }
         
         .weather-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
+            font-size: 2rem; /* Diperkecil */
+            margin-bottom: 1rem; /* Diperkecil */
             color: #3498db;
             animation: pulse 2s infinite;
         }
         
         @media (min-width: 768px) {
             .weather-icon {
-                font-size: 3rem;
+                font-size: 2.5rem; /* Diperkecil */
             }
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); } /* Diperkecil */
             100% { transform: scale(1); }
         }
         
         .divider {
-            height: 3px;
+            height: 2px; /* Diperkecil */
             background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.4), transparent);
-            margin: 1.5rem 0;
+            margin: 1.2rem 0; /* Diperkecil */
             width: 80%;
             margin-left: auto;
             margin-right: auto;
@@ -238,7 +245,7 @@
         
         @media (min-width: 768px) {
             .divider {
-                margin: 2rem 0;
+                margin: 1.5rem 0; /* Diperkecil */
             }
         }
         
@@ -246,7 +253,7 @@
             position: absolute;
             top: 5%;
             right: 5%;
-            font-size: 2.5rem;
+            font-size: 2rem; /* Diperkecil */
             color: #ff7b00;
             animation: rotateSun 30s infinite linear;
             opacity: 0.7;
@@ -255,23 +262,23 @@
         
         @media (min-width: 768px) {
             .sun {
-                top: 10%;
-                right: 14%;
-                font-size: 4rem;
+                top: 8%;
+                right: 10%;
+                font-size: 3rem; /* Diperkecil */
             }
         }
         
         .cloud {
             position: absolute;
             z-index: 2;
-            color: #f8fafc; /* Warna putih untuk awan */
+            color: #f8fafc;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
         .cloud-1 {
             top: 5%;
             right: 5%;
-            font-size: 3rem;
+            font-size: 2.5rem; /* Diperkecil */
             animation: floatCloud 20s infinite ease-in-out;
             opacity: 0.8;
         }
@@ -279,7 +286,7 @@
         .cloud-2 {
             bottom: 10%;
             left: 5%;
-            font-size: 2.5rem;
+            font-size: 2rem; /* Diperkecil */
             animation: floatCloud 25s infinite ease-in-out;
             opacity: 0.4;
         }
@@ -287,7 +294,7 @@
         .cloud-3 {
             bottom: 15%;
             left: 15%;
-            font-size: 3.5rem;
+            font-size: 3rem; /* Diperkecil */
             animation: floatCloud 30s infinite ease-in-out;
             opacity: 0.6;
         }
@@ -295,7 +302,7 @@
         .cloud-4 {
             bottom: 5%;
             left: 25%;
-            font-size: 2rem;
+            font-size: 1.8rem; /* Diperkecil */
             animation: floatCloud 35s infinite ease-in-out;
             opacity: 0.5;
         }
@@ -303,46 +310,46 @@
         .cloud-5 {
             bottom: 25%;
             left: 8%;
-            font-size: 2.8rem;
+            font-size: 2.2rem; /* Diperkecil */
             animation: floatCloud 40s infinite ease-in-out;
             opacity: 0.7;
         }
         
         @media (min-width: 768px) {
             .cloud-1 {
-                top: 10%;
-                right: 10%;
-                font-size: 5rem;
+                top: 8%;
+                right: 8%;
+                font-size: 4rem; /* Diperkecil */
             }
             
             .cloud-2 {
-                bottom: 15%;
+                bottom: 12%;
                 left: 8%;
-                font-size: 4rem;
+                font-size: 3rem; /* Diperkecil */
             }
 
             .cloud-3 {
-                bottom: 20%;
-                left: 20%;
-                font-size: 5rem;
+                bottom: 18%;
+                left: 18%;
+                font-size: 4rem; /* Diperkecil */
             }
 
             .cloud-4 {
-                bottom: 10%;
-                left: 30%;
-                font-size: 3rem;
+                bottom: 8%;
+                left: 28%;
+                font-size: 2.5rem; /* Diperkecil */
             }
 
             .cloud-5 {
-                bottom: 30%;
-                left: 12%;
-                font-size: 4rem;
+                bottom: 25%;
+                left: 10%;
+                font-size: 3rem; /* Diperkecil */
             }
         }
         
         @keyframes floatCloud {
             0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(30px) translateY(15px); }
+            50% { transform: translateX(25px) translateY(10px); } /* Diperkecil */
             100% { transform: translateX(0) translateY(0); }
         }
         
@@ -353,14 +360,14 @@
         
         .footer-badge {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 15px; /* Diperkecil */
+            right: 15px; /* Diperkecil */
             color: #fff;
-            font-size: 0.875rem;
+            font-size: 0.8rem; /* Diperkecil */
             background: linear-gradient(to right, #38bdf8, #2563eb);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem; /* Diperkecil */
             border-radius: 9999px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* Diperkecil */
             display: flex;
             align-items: center;
             z-index: 20;
@@ -368,17 +375,17 @@
         
         @media (min-width: 768px) {
             .footer-badge {
-                bottom: 30px;
-                right: 30px;
-                font-size: 1rem;
-                padding: 12px 20px;
+                bottom: 20px; /* Diperkecil */
+                right: 20px; /* Diperkecil */
+                font-size: 0.9rem; /* Diperkecil */
+                padding: 10px 16px; /* Diperkecil */
             }
         }
         
         @media (max-width: 480px) {
             .footer-badge {
-                font-size: 0.8rem;
-                padding: 8px 12px;
+                font-size: 0.7rem; /* Diperkecil */
+                padding: 6px 10px; /* Diperkecil */
             }
         }
 
@@ -486,13 +493,13 @@
             Menu Surat Tugas 
         </h1>
         
-        <p class="text-gray-600 text-lg mb-6 font-medium">
+        <p class="text-gray-600 text-base mb-4 font-medium"> <!-- Diperkecil -->
             Pilih Salah Satu Menu Sesuai Banyak Orang Yang Ditugaskan
         </p>
         
         <div class="divider"></div>
 
-        <div class="space-y-6 mt-4">
+        <div class="space-y-4 mt-2"> <!-- Diperkecil -->
             <!-- Tombol untuk menuju surat.html -->
             <a href="surat.html" class="block">
                 <button class="btn-primary bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold">
@@ -511,7 +518,7 @@
         <div class="divider"></div>
         
         <!-- Footer -->
-        <p class="text-md text-gray-600 mt-6 font-medium">
+        <p class="text-sm text-gray-600 mt-4 font-medium"> <!-- Diperkecil -->
             <i class="fas fa-temperature-low mr-2 text-blue-500"></i> Staklim Jateng
         </p>
     </div>
@@ -525,7 +532,7 @@
         // Fungsi untuk membuat awan tambahan
         function createClouds() {
             const cloudsContainer = document.getElementById('cloudsContainer');
-            const cloudCount = 100; // Jumlah awan
+            const cloudCount = 80; /* Diperkecil dari 100 */
             
             for (let i = 0; i < cloudCount; i++) {
                 const cloud = document.createElement('i');
@@ -536,7 +543,7 @@
                 const bottom = Math.random() * 50; // Awan hanya di bagian bawah 50% layar
                 
                 // Ukuran acak
-                const size = 1 + Math.random() * 4; // Ukuran antara 1rem sampai 5rem
+                const size = 0.8 + Math.random() * 3; /* Diperkecil */
                 
                 // Opacity acak
                 const opacity = 0.2 + Math.random() * 0.6; // Opacity antara 0.2 sampai 0.8
@@ -564,7 +571,7 @@
         // Fungsi untuk membuat animasi hujan
         function createRain() {
             const rainContainer = document.getElementById('rainContainer');
-            const raindropCount = 25; // Jumlah tetesan hujan
+            const raindropCount = 20; /* Diperkecil dari 25 */
             
             for (let i = 0; i < raindropCount; i++) {
                 const raindrop = document.createElement('div');
@@ -615,8 +622,8 @@
                 const rainContainer = document.getElementById('rainContainer');
                 // Hapus beberapa raindrop yang sudah lama
                 const raindrops = rainContainer.querySelectorAll('.raindrop');
-                if (raindrops.length > 100) {
-                    for (let i = 0; i < 25; i++) {
+                if (raindrops.length > 80) { /* Diperkecil dari 100 */
+                    for (let i = 0; i < 20; i++) { /* Diperkecil dari 25 */
                         if (raindrops[i]) {
                             raindrops[i].remove();
                         }
@@ -629,5 +636,3 @@
     </script>
 </body>
 </html>
-
-
