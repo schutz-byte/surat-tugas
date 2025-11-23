@@ -633,12 +633,16 @@
               <label for="manualJabatan"><i class="fas fa-briefcase"></i> Jabatan:</label>
               <input type="text" id="manualJabatan" placeholder="Jabatan penandatangan">
             </div>
+            <div class="form-group">
+              <label for="manualttd"><i class="fas fa-signature"></i> Tanda Tangan Atas Nama:</label>
+              <input type="text" id="manualttd" placeholder="nama penandatangan">
+            </div>
           </div>
         </div>
         
         <div class="form-group">
           <label for="nomorSurat"><i class="fas fa-hashtag"></i> Nomor Surat:</label>
-          <input type="text" id="nomorSurat" value="B/TU.01.00/001/KJTG/VIII/2025">
+          <input type="text" id="nomorSurat" placeholder="B/TU.01.00/001/KJTG/VIII/2025">
         </div>
         
         <div class="form-group">
@@ -963,32 +967,27 @@
       const formattedTanggalBerangkat = tanggalBerangkat.toLocaleDateString('id-ID', options);
       
       // Get penandatangan details
-      let penandatanganNama, penandatanganNIP, penandatanganPangkat, penandatanganJabatan;
+      let penandatanganNama, penandatanganNIP, penandatanganPangkat, penandatanganJabatan, penandatanganNamasing;
       
       if (penandatangan === 'goeroeh') {
         penandatanganNama = 'Goeroeh Tjiptanto, S.Stat, M.T.I';
         penandatanganNIP = '197101221994031001';
         penandatanganPangkat = 'Pembina Tk. I / IV b';
         penandatanganJabatan = 'Kepala';
+        penandatanganNamasing = 'Goeroeh Tjiptanto';
       } else if (penandatangan === 'wahyu') {
         penandatanganNama = 'Wahyu Prasetya Adi';
         penandatanganNIP = '197805142000121001';
         penandatanganPangkat = 'Pembina / IV a';
         penandatanganJabatan = 'Kepala Sub-bagian Tata Usaha';
+        penandatanganNamasing = 'Wahyu Prasetya Adi';
       } else {
         // Manual input
         penandatanganNama = document.getElementById('manualNama').value || "Nama Penandatangan";
         penandatanganNIP = document.getElementById('manualNIP').value || "NIP Penandatangan";
-        
-        // Handle manual pangkat with "Lainnya" option
-        const manualPangkatSelect = document.getElementById('manualPangkat');
-        if (manualPangkatSelect.value === 'Lainnya') {
-          penandatanganPangkat = document.getElementById('manualPangkatLainnya').value || "Pangkat/Golongan";
-        } else {
-          penandatanganPangkat = manualPangkatSelect.value || "Pangkat/Golongan";
-        }
-        
+        penandatanganPangkat = document.getElementById('manualPangkat').value || "Pangkat/Golongan";
         penandatanganJabatan = document.getElementById('manualJabatan').value || "Jabatan Penandatangan";
+        penandatanganNamasing = document.getElementById('manualttd').value || "Nama Penandatangan tanpa gelar";
       }
       
       // Get pegawai data and build the table for the preview
@@ -1006,7 +1005,7 @@
               <th style="width: 20px; text-align: center;">No</th>
               <th>Nama</th>
               <th>NIP</th>
-              <th>Pangkat/Golongan</th>
+              <th>Pangkat/Gol</th>
               <th>Jabatan</th>
             </tr>
           </thead>
@@ -1034,7 +1033,7 @@
             <td style="text-align: center;">${index + 1}.</td>
             <td>${nama}</td>
             <td style="text-align: center;">${nip}</td>
-            <td>${pangkat}</td>
+            <td style="text-align:justify;">${pangkat}</td>
             <td>${jabatan}</td>
           </tr>
         `;
@@ -1145,7 +1144,7 @@
         </div>
 
         <div style="margin-top:150px; margin-left:45%;">
-          <div>${penandatanganNama}</div>
+          <div>${penandatanganNamasing}</div>
         </div>
         </div> </div>
         <!-- Lampiran di halaman baru -->
@@ -1272,8 +1271,8 @@
               <div style="font-size:17pt;letter-spacing:0.5; font-weight:bold;">STASIUN KLIMATOLOGI JAWA TENGAH</div>
               <div style="font-size:12pt;">Jl. Siliwangi No. 291 Semarang 50145 Telp. 024-7609016 Fax. 024-7612394</div>
               <div style="font-size:12pt;">
-                  Email: <a style="color:rgb(0, 117, 255); text-decoration:underline;">staklim.jateng@bmkg.go.id</a> | 
-                  Website: <a style="color:rgb(0, 117, 255); text-decoration:underline;">www.bmkg.go.id</a>
+                  Email: <a style="color:rgb(0, 120, 255); text-decoration:underline;">staklim.jateng@bmkg.go.id</a>&ensp
+                  <a style="color:rgb(0, 120, 255); text-decoration:underline;">https://www.iklimjateng.info</a>
                 </div>
                 </div>
               </div>
