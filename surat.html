@@ -621,6 +621,10 @@
               <label for="manualttd"><i class="fas fa-signature"></i> Tanda Tangan Atas Nama:</label>
               <input type="text" id="manualttd" placeholder="nama penandatangan">
             </div>
+            <div class="form-group">
+              <label for="ttd_pengirim"><i class="fas fa-signature"></i> ttd elektronik</label>
+              <input type="text" id="ttd_pengirim" value="${ttd_pengirim}">
+            </div>
           </div>
         </div>
         
@@ -930,12 +934,14 @@
         penandatanganPangkat = 'Pembina Tk. I / IV b';
         penandatanganJabatan = 'Kepala';
         penandatanganNamasing = 'Goeroeh Tjiptanto';
+        ttd_pengirim = '${ttd_pengirim}';
       } else if (penandatangan === 'wahyu') {
         penandatanganNama = 'Wahyu Prasetya Adi';
         penandatanganNIP = '197805142000121001';
         penandatanganPangkat = 'Pembina / IV a';
         penandatanganJabatan = 'Kepala Sub-bagian Tata Usaha';
         penandatanganNamasing = 'Wahyu Prasetya Adi';
+         ttd_pengirim = '${ttd_pengirim}';
       } else {
         // Manual input
         penandatanganNama = document.getElementById('manualNama').value || "Nama Penandatangan";
@@ -943,6 +949,7 @@
         penandatanganPangkat = document.getElementById('manualPangkat').value || "Pangkat/Golongan";
         penandatanganJabatan = document.getElementById('manualJabatan').value || "Jabatan Penandatangan";
         penandatanganNamasing = document.getElementById('manualttd').value || "Nama Penandatangan tanpa gelar";
+        ttd_pengirim = document.getElementById('ttd_pengirim').value || "${ttd_pengirim}";
       }
       
       // Get pegawai data
@@ -1088,8 +1095,10 @@
       <div style="margin-top:30px;margin-right:0cm; margin-left:45%; ">
         <p>Semarang, ${formattedTanggalSurat}<br>${penandatanganJabatan},</p>
       </div>
-
-      <div style="margin-top:150px; margin-left:45%;">
+      <div style="margin-top:75px; margin-left:50%;">
+        <div>${ttd_pengirim}</div>
+      </div>
+      <div style="margin-top:75px; margin-left:45%;">
         <div>${penandatanganNamasing}</div>
       </div>
     </div>
@@ -1167,7 +1176,7 @@
               <div style="font-size:17pt;letter-spacing:0.5; font-weight:bold;">STASIUN KLIMATOLOGI JAWA TENGAH</div>
               <div style="font-size:12pt;">Jl. Siliwangi No. 291 Semarang 50145 Telp. 024-7609016 Fax. 024-7612394</div>
               <div style="font-size:12pt;">
-                  Email: <a style="color:rgb(0, 120, 255); text-decoration:underline;">staklim.jateng@bmkg.go.id</a>&ensp;
+                  Email: <a style="color:rgb(0, 120, 255); text-decoration:underline;">staklim.jateng@bmkg.go.id</a>&nbsp&nbsp
                   <a style="color:rgb(0, 120, 255); text-decoration:underline;">https://www.iklimjateng.info</a>
                 </div>
             </div>
